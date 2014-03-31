@@ -1,0 +1,16 @@
+{
+  "name": "quicklinks",
+  "title": "Quick Links",
+  "id": "jid1-sPBPaBflVZ80iQ",
+  "description": "Lets you add links to your favorite sites to your add-on bar from where you can quickly access the sites",
+  "author": "GOCHO Ian",
+  "homepage": "https://homepage.com",
+  "translators": [],
+  "contributors": [],
+  "keywords": [
+  	"quick links", "links", "tabs", "mozilla", "firefox"
+  ],
+  "license": "MPL 2.0",
+  "version": "1.0",
+  "permissions": {"private-browsing":true}
+}
