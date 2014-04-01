@@ -72,25 +72,34 @@ var QL_webweaver = {
         // Showing a Loading status
         QL_webweaver.btnSubmit.innerHTML = "<i class='fa fa-spinner fa-spin'></i> Sending..";
         QL_webweaver.btnSubmit.className += " active";
-        // Creating a JSON object for FIREBASE
-        var submission = {
-            //"timestamp": QL_webweaver.dataRef.ServerValue.TIMESTAMP,
-            "status": status,
-            "username": username,
-            "email": email,
-            "details": details
-        };
-        // Uploading the DATA to FIREBASE
-        QL_webweaver.dataRef.setWithPriority(submission, status, function (submitted) {
-            if (submitted == null) {
-                QL_webweaver.alert('success', '<i class="fa fa-thumbs-o-up"></i>', 'Message <strong>sent</strong>. Thanks.');
-            } else {
-                QL_webweaver.alert('danger', '<i class="fa fa-warning"></i>', 'Message could <strong>NOT</strong> be sent. Try again.');
-            } 
-            QL_webweaver.btnSubmit.innerHTML = "Send";
-            QL_webweaver.btnSubmit.className = "btn btn-primary btn-block";
-         });
-        return;
+        // Reading FB once to get the Submission number
+        QL_webweaver.dataRef.once('value', function (snapshot) {
+           // The submission number
+            var no = parseFloat(snapshot.val().submission) + 1;
+            // Creating a JSON object for FIREBASE
+            var submission = {};
+            submission[no] = {
+                "timestamp": QL_webweaver.dataRef.ServerValue.TIMESTAMP,
+                "status": status,
+                "username": username,
+                "email": email,
+                "details": details
+            };
+            // Uploading the DATA to FIREBASE
+            QL_webweaver.dataRef.update(submission, status, function (submitted) {
+                if (submitted == null) {
+                    QL_webweaver.alert('success', '<i class="fa fa-thumbs-o-up"></i>', 'Message <strong>sent</strong>. Thanks.');
+                } else {
+                    QL_webweaver.alert('danger', '<i class="fa fa-warning"></i>', 'Message could <strong>NOT</strong> be sent. Try again.');
+                } 
+                QL_webweaver.btnSubmit.innerHTML = "Send";
+                QL_webweaver.btnSubmit.className = "btn btn-primary btn-block";
+             });
+            return;
+        }, function (err) {
+            // Error Occurred and Submission Number could not be retrieved
+            QL_webweaver.alert('danger', '<i class="fa fa-warning"></i>', '<strong>ERROR</strong> occurred. We working to fix this.');
+        });
     },
     init: function () {
         /*FIREBASE reference*/
