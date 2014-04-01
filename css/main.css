@@ -2,9 +2,7 @@
 /*FONTS*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
-@font-face {
-  font-family: 'normal';
-  src: url("fonts/Ubuntu 300.ttf"); }
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300);
 /*COLORS*/
 /*TEXTURE definition*/
 .texture, .main-menu, #header {
@@ -26,7 +24,7 @@
 
 /*BODY elements*/
 body * {
-  font-family: 'normal'; }
+  font-family: "Ubuntu"; }
 
 /*Main Navigation bar*/
 .main-menu {
@@ -60,7 +58,7 @@ body * {
   #header .header-menu {
     /*ALL Links*/ }
     #header .header-menu a {
-      font-family: normal !important;
+      font-family: "Ubuntu" !important;
       font-size: 18px; }
   #header .header-details {
     background: #27ae60;
