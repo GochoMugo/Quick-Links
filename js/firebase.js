@@ -75,19 +75,21 @@ var QL_webweaver = {
         // Reading FB once to get the Submission number
         QL_webweaver.dataRef.once('value', function (snapshot) {
            // The submission number
-            var no = parseFloat(snapshot.val().submission) + 1;
+            var no = parseFloat(snapshot.val().submissions) + 1;
             // Creating a JSON object for FIREBASE
             var submission = {};
             submission[no] = {
-                "timestamp": QL_webweaver.dataRef.ServerValue.TIMESTAMP,
+                //"timestamp": QL_webweaver.dataRef.ServerValue.TIMESTAMP,
                 "status": status,
                 "username": username,
                 "email": email,
                 "details": details
             };
             // Uploading the DATA to FIREBASE
-            QL_webweaver.dataRef.update(submission, status, function (submitted) {
+            QL_webweaver.dataRef.update(submission, function (submitted) {
                 if (submitted == null) {
+                    // Incrementing the Submissions no
+                    QL_webweaver.dataRef.update({"submissions": no});
                     QL_webweaver.alert('success', '<i class="fa fa-thumbs-o-up"></i>', 'Message <strong>sent</strong>. Thanks.');
                 } else {
                     QL_webweaver.alert('danger', '<i class="fa fa-warning"></i>', 'Message could <strong>NOT</strong> be sent. Try again.');
