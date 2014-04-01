@@ -74,7 +74,7 @@ var QL_webweaver = {
         QL_webweaver.btnSubmit.className += " active";
         // Creating a JSON object for FIREBASE
         var submission = {
-            //"timestamp": QL_webweaver.dataRef.ServerValue.TIMESTAMP,
+            "timestamp": QL_webweaver.dataRef.ServerValue.TIMESTAMP,
             "status": status,
             "username": username,
             "email": email,
