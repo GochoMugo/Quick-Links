@@ -105,7 +105,7 @@ var QL_webweaver = {
     },
     init: function () {
         /*FIREBASE reference*/
-        QL_webweaver.dataRef = new Firebase('https://think-tank.firebaseio.com/');
+        QL_webweaver.dataRef = new Firebase('https://quick-links.firebaseio.com/');
         /*Click functionality*/
         QL_webweaver.onClick();
     }
