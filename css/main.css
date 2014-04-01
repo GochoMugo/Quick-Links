@@ -8,7 +8,7 @@
   src: url("fonts/KaushanScript-Regular.ttf"); }
 @font-face {
   font-family: 'heading';
-  src: url("http://fonts.googleapis.com/css?family=Montserrat"); }
+  src: url(http://fonts.googleapis.com/css?family=Montserrat); }
 /*COLORS*/
 /*TEXTURE definition*/
 .texture, .main-menu, #header {
