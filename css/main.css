@@ -1,5 +1,17 @@
 /*TEXTURE*/
 /*FONTS*/
+/*@font-face {
+    font-family: 'normal';
+    src: url('fonts/Ubuntu 300.ttf');
+}
+@font-face {
+    font-family: 'stylish';
+    src: url('fonts/KaushanScript-Regular.ttf');
+}
+@font-face {
+    font-family: 'heading';
+    src: url('fonts/Montserrat-Regular.ttf');
+}*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:300);
@@ -46,12 +58,15 @@ body * {
   padding: 0;
   text-align: center;
   /*Brand-Logo*/
+  /*Home Link*/
   /*Heading for the Page*/
   /*Submenu*/
   /*Details for the page*/ }
   #header .brand-logo {
     height: 128px;
     margin: 0; }
+  #header a {
+    text-decoration: none; }
   #header h1 {
     font-family: "Kaushan Script";
     font-size: 4em; }
