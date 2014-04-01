@@ -1,12 +1,10 @@
 /*TEXTURE*/
 /*FONTS*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
 @font-face {
   font-family: 'normal';
   src: url("fonts/Ubuntu 300.ttf"); }
-@font-face {
-  font-family: 'stylish';
-  src: url("fonts/KaushanScript-Regular.ttf"); }
 /*COLORS*/
 /*TEXTURE definition*/
 .texture, .main-menu, #header {
@@ -39,7 +37,7 @@ body * {
   /*Links*/ }
   .main-menu a {
     color: #fff !important;
-    font-family: stylish;
+    font-family: "Kaushan Script";
     font-size: 1.5em;
     /*Hover effects*/ }
     .main-menu a:hover {
@@ -57,7 +55,7 @@ body * {
     height: 128px;
     margin: 0; }
   #header h1 {
-    font-family: 'stylish';
+    font-family: "Kaushan Script";
     font-size: 4em; }
   #header .header-menu {
     /*ALL Links*/ }
@@ -137,7 +135,7 @@ body * {
       /*Heading*/
       /*Contribute button*/ }
       #content .contribution .container h6 {
-        font-family: stylish;
+        font-family: "Kaushan Script";
         font-size: 20px; }
       #content .contribution .container .btn-sm {
         margin: 0 4px 4px 0; }
