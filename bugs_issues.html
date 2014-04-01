@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <!--Enabling proper rendering and touch zooming-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title on Browser-->
+        <title>Quick Links | v1.0</title>
+        <!--CDNS-->
+        <!--Bootstrap-->
+        <!--Font Awesome-->
+        
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all">
+        <!--Font Awesome-->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="all">
+        <!--Custom stylesheet-->
+        <link rel="stylesheet" href="css/main.css" media="all">
+        <!--Favicon-->
+        <link rel="icon" href="images/icon.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
+    </head>
+    
+    <body>
+        <!--Main navigation bar-->
+        <nav class="navbar navbar-inverse main-menu">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://github.com/GochoMugo" title="Proceed to my GitHub Profile">GOCHO</a>
+                <a class="btn btn-primary pull-right" href="https://addons.mozilla.org/en-US/firefox/addon/quick-links/" title="Download from Mozilla.org"><i class="fa fa-download"></i> Download</a>
+            </div>
+            <div>
+            </div>
+        </nav>
+        <!--Page header-->
+        <header id="header">
+            <img src="images/logo.png" class="brand-logo">
+            <h1>Quick Links <small>1.0</small></h1>
+            <!--Short Submenu-->
+            <div class="header-menu">
+                <div class="hidden-xs">
+                    <a href="bugs_issues.html"><i class="fa fa-bug"> Bugs and Issues</i></a> &middot;
+                    <a href="license.html"><i class="fa fa-trophy"> License</i></a> &middot;
+                    <a href="documentation.html"><i class="fa fa-book"> Documentation</i></a> &middot;
+                </div>
+                <div class="visible-xs">
+                    <div>
+                        <a href="bugs_issues.html"><i class="fa fa-bug"> Bugs and Issues</i></a>
+                    </div>
+                    <div>
+                        <a href="license.html"><i class="fa fa-trophy"> License</i></a>
+                    </div>
+                    <div>
+                        <a href="documentation.html"><i class="fa fa-book"> Documentation</i></a>
+                    </div>
+                </div>
+            </div>
+            <!--Details band-->
+            <div class="header-details">
+                <p>
+                    <span>
+                        Addon for 
+                        <img src="images/firefox_logo.png">
+                        <a href="https://www.mozilla.org/">
+                            Firefox
+                        </a>
+                    </span>: Lets you add links to your favorite sites to your add-on bar from where you can quickly access the sites
+                </p>
+            </div>
+        </header>
+        <!--Page Content-->
+        <div id="content" class="content-center">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <!--Link to Report a Bug-->
+                    <a href="#correspondence" class="btn btn-primary btn-block btn-sm" id="correspondence-link">
+                        <div class="row hidden-xs">
+                            <div class="col-md-6 col-md-offset-3">
+                                Report a Bug |
+                                Suggest a Change | 
+                                A Simple Thanks
+                            </div>
+                        </div>
+                        <div class="row visible-xs">
+                            <div class="col-xs-12">Report a Bug</div>
+                            <div class="col-xs-12">Suggest a Change</div>
+                            <div class="col-xs-12">A Simple Thanks</div>
+                        </div>
+                    </a>
+                    <!--Issues-->
+                    <div class="issues">
+                        <h3>Issues <small>updates and reports</small></h3>
+                        <div class="single-issue">
+                            <h4>Assess addon with Validation Results <small>31<sup>st</sup> March 2014</small></h4>
+                            <p>
+                                You can access the validation results of the addon
+                                <a href="https://addons.mozilla.org/en-US/developers/upload/800d0d924dfb4388826025d42d2127aa">here</a> and help Me make it better.
+                            </p>
+                        </div>
+                        <div class="single-issue">
+                            <h4>Published on Mozilla Site <small>31<sup>st</sup> March 2014</small></h4>
+                            <p>
+                                You can download the addon from Mozilla.org.&nbsp;
+                                <a href="https://addons.mozilla.org/en-US/firefox/addon/quick-links/">Download</a> and be in ease.
+                            </p>
+                        </div>
+                    </div>
+                    <!--Bugs-->
+                    <div class="bugs">
+                        <h3>Bugs <small>errors</small></h3>
+                        <div class="single-bug">
+                            <span class="status-unresolved">UNRESOLVED</span>
+                            <h4>Width Inconsistency <small>1<sup>st</sup> April 2014</small></h4>
+                            <p>
+                                The width of the addon is inconsistent making the widget adjust unfavorably.
+                            </p>
+                        </div>
+                    </div>
+                    <!--correspondence-->
+                    <div class="correspondence" id="correspondence">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <!--FORM-->
+                                <!--Alert Box-->
+                                <div id="frm_alert"></div>
+                                <div class="frm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" placeholder="Your Name" id="frm_username" >
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" placeholder="Your email address" id="frm_email">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class='btn-group btn-group-justified' data-toggle='buttons' id='btn-group'>
+                                            <label class='btn btn-default'>
+                                                <input type='radio' name='options' class='radios' id="Bug"> 
+                                                <i class='fa fa-bug'></i> Bug
+                                            </label>
+                                            <label class='btn btn-default'>
+                                                <input type='radio' name='options' class='radios' id="Change"> 
+                                                <i class='fa fa-exchange'></i> Change
+                                            </label>
+                                            <label class='btn btn-default'>
+                                                <input type='radio' name='options' class='radios' id="Thanks"> 
+                                                <i class='fa fa-thumbs-o-up'></i> Thanks
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <textarea class="form-control" placeholder="Enter the details..." id="frm_details"></textarea>
+                                    <button class="btn btn-primary btn-block" id="frm_submit">
+                                        Send
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Page footer-->
+        <footer id="footer">
+            <!--Next Version Coming-->
+            <div class="next-version">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <!--The progress bar-->
+                        <span class="label">Version 2 Completion</span>
+                        <div class="progress progress-striped active">
+                            <div class="progress-bar  progress-bar-success" role="progressbar" aria-valuenow="5" aria-value-min="0" aria-value-max="100" style="width: 5%">
+                                <span class="sr-only">5% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Visible on extra small devices-->
+            <div class="container visible-xs">
+                <span>Currently version 1.0</span> <br>
+                <span>Created by <a href="https://github.com/GochoMugo">Gocho Ian</a><br>
+                <span><a href="http://gochomugo.github.io/Quick-Links/bugs_issues.html"><i class="fa fa-bug"></i> Bugs and Issues</a></span><br>
+                <span><a href="http://gochomugo.github.io/Quick-Links/license.html"><i class="fa fa-trophy"></i> License</a></span><br>
+                <span><a href="http://gochomugo.github.io/Quick-Links/documentation.html"><i class="fa fa-book"></i> Documentation</a></span><br>
+            </div>
+            <!--Visible on other devices-->
+            <div class="container hidden-xs">
+                <div>
+                    <span>Currently version 1.0</span> &middot;
+                    <span>Created by <a href="https://github.com/GochoMugo">Gocho Ian</a><span>
+                </div>
+                <div>
+                    <span><a href="http://gochomugo.github.io/Quick-Links/bugs_issues.html"><i class="fa fa-bug"></i> Bugs and Issues</a></span> &middot;
+                    <span><a href="http://gochomugo.github.io/Quick-Links/license.html"><i class="fa fa-trophy"></i> License</a></span> &middot;
+                    <span><a href="http://gochomugo.github.io/Quick-Links/documentation.html"><i class="fa fa-book"></i> Documentation</a></span>
+                </div>
+            </div>
+        </footer>
+        <!--jQuery-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+        <!--Bootstrap-->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <!--Firebase-->
+        <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+        <!--Custom JS-->
+        <script src="js/firebase.js"></script>
+        <script src="js/bugs_issues.js"></script>
+    </body>
+</html>
