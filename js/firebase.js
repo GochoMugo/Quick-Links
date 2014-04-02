@@ -1,11 +1,4 @@
-// If an error is caught by the engine, an alert box should appear
-window.onerror = function(msg, url, line){
-    // Firebase is NOT defined 
-    QL_webweaver.alert('danger', '<i class="fa fa-cogs fa-lg"></i>', "Message can <strong>NOT</strong> be sent. Try <strong>reloading</strong> the page to send a message.");
-    QL_webweaver.btnSubmit.innerHTML = "CAN NOT SEND";
-    QL_webweaver.btnSubmit.className += " disabled";
-}
-
+/*MAIN GLOBAL OBJECT*/
 var QL_webweaver = {
     dataRef: '', // Data reference to FIREBASE
     alertBox: document.getElementById("frm_alert"),
@@ -65,6 +58,13 @@ var QL_webweaver = {
 
             // Submitting the Data
             QL_webweaver.submit(status, txtUsername.value, txtEmail.value, txtDetails.value);
+            // Resetting the form
+            txtUsername.value = "";
+            txtEmail.value = "";
+            txtDetails.value = "";
+            for (i = 0; i < radios.length; i++) {
+                radios[i].checked = false;
+            }
             return;
         };
     },
@@ -75,9 +75,8 @@ var QL_webweaver = {
         // Reading FB once to get the Submission number
         QL_webweaver.dataRef.once('value', function (snapshot) {
            // The submission number
-            var no = parseFloat(snapshot.val().submissions) + 1;
-            // Creating a JSON object for FIREBASE
-            var submission = {};
+            var no = parseFloat(snapshot.val().submissions) + 1,
+                submission = {}; // Creating a JSON object for FIREBASE
             submission[no] = {
                 //"timestamp": QL_webweaver.dataRef.ServerValue.TIMESTAMP,
                 "status": status,
@@ -87,16 +86,16 @@ var QL_webweaver = {
             };
             // Uploading the DATA to FIREBASE
             QL_webweaver.dataRef.update(submission, function (submitted) {
-                if (submitted == null) {
+                if (submitted === null) {
                     // Incrementing the Submissions no
                     QL_webweaver.dataRef.update({"submissions": no});
                     QL_webweaver.alert('success', '<i class="fa fa-thumbs-o-up"></i>', 'Message <strong>sent</strong>. Thanks.');
                 } else {
                     QL_webweaver.alert('danger', '<i class="fa fa-warning"></i>', 'Message could <strong>NOT</strong> be sent. Try again.');
-                } 
+                }
                 QL_webweaver.btnSubmit.innerHTML = "Send";
                 QL_webweaver.btnSubmit.className = "btn btn-primary btn-block";
-             });
+            });
             return;
         }, function (err) {
             // Error Occurred and Submission Number could not be retrieved
@@ -111,7 +110,15 @@ var QL_webweaver = {
     }
 };
 
-/*Document is READY*/
+// If an error is caught by the engine, an alert box should appear
+window.onerror = function (msg, url, line) {
+    // Firebase is NOT defined 
+    QL_webweaver.alert('danger', '<i class="fa fa-cogs fa-lg"></i>', "Message can <strong>NOT</strong> be sent. Try <strong>reloading</strong> the page to send a message.");
+    QL_webweaver.btnSubmit.innerHTML = "CAN NOT SEND";
+    QL_webweaver.btnSubmit.className += " disabled";
+};
+
+/*Document is READY and ALL JS Parsed by engine*/
 $(document).ready(function () {
     QL_webweaver.init(); /*Initialization*/
 });
