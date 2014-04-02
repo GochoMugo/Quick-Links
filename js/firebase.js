@@ -73,10 +73,10 @@ var QL_webweaver = {
         QL_webweaver.btnSubmit.innerHTML = "<i class='fa fa-spinner fa-spin'></i> Sending..";
         QL_webweaver.btnSubmit.className += " active";
         // Reading FB once to get the Submission number
-        QL_webweaver.dataRef.once('value', function (snapshot, status) {
+        QL_webweaver.dataRef.once('value', function (snapshot) {
            // The submission number
             var no = parseFloat(snapshot.val().submissions) + 1,
-                submission = {}; // Creating a JSON object for FIREBASE
+                submission = {status: null}; // Creating a JSON object for FIREBASE
             // Submission is classified as either 'bugs', 'changes' or 'thanks'
             submission[status][no] = {
                 //"timestamp": QL_webweaver.dataRef.ServerValue.TIMESTAMP,
