@@ -76,21 +76,8 @@ var QL_webweaver = {
         QL_webweaver.dataRef.once('value', function (snapshot) {
            // The submission number
             var no = parseFloat(snapshot.val().submissions) + 1,
-                submission;
-            // Creating a JSON object for FIREBASE
-            switch (status) {
-            case "bugs":
-                submission = {"bugs": null};
-                break;
-            case "changes":
-                submission = {"changes": null};
-                break;
-            case "thanks":
-                submission = {"thanks": null};
-                break;
-            }
-            // Submission is classified as either 'bugs', 'changes' or 'thanks'
-            submission[status][no] = {
+                submission = {}; // Creating a JSON object for FIREBASE
+            submission[no] = {
                 //"timestamp": QL_webweaver.dataRef.ServerValue.TIMESTAMP,
                 "status": status,
                 "username": username,
