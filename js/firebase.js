@@ -5,11 +5,11 @@ var QL_webweaver = {
     btnSubmit: document.getElementById("frm_submit"),
     enableBtn: function (message) {
         QL_webweaver.btnSubmit.innerHTML = message;
-        QL_webweaver.btnSubmit.className += " disabled";
+        QL_webweaver.btnSubmit.className -= " disabled";
     },
     disableBtn: function (message) {
         QL_webweaver.btnSubmit.innerHTML = message;
-        QL_webweaver.btnSubmit.className -= " disabled";
+        QL_webweaver.btnSubmit.className += " disabled";
     },
     alert: function (status, word, message) {
         var result;
