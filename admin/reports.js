@@ -51,10 +51,11 @@ var QL_MASTER = {
         // Reading FB once to Check if it is the Admin
         QL_MASTER.dataRef.once('value', function (snapshot) {
             // Getting all the Admins
-            var admins = JSON.parse(snapshot).MASTER,
+            var admins = JSON.parse(snapshot),
                 admin,
                 got_in = new Date(),
                 submission;
+            admins = admins.MASTER;
             // Looping through all the Admins
             for (admin in admins) {
                 /*CHECKING IF THE USERNAME AND PASSWORDS MATCH*/
