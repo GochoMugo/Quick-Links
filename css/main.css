@@ -12,9 +12,9 @@
     font-family: 'heading';
     src: url('fonts/Montserrat-Regular.ttf');
 }*/
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:300);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300);
 /*COLORS*/
 /*TEXTURE definition*/
 .texture, .main-menu, #header {
@@ -164,8 +164,8 @@ body * {
     font-family: "Montserrat" !important;
     font-weight: lighter; }
 
-/*Notifications*/
 /*Status Notification*/
+/*Notifications*/
 /*ISSUES*/
 .issues {
   /*Single issue*/ }
@@ -174,6 +174,10 @@ body * {
     padding: 4px 4px 4px 8px;
     border-left: 4px solid #2ecc71;
     /*Heading*/
+    /*STATUSES*/
+    /*RESOLVED*/
+    /*UNRESOLVED*/
+    /*Hover effects*/
     border-left-color: #2ecc71;
     margin-bottom: 5px; }
     .issues .single-issue h4 {
@@ -182,47 +186,151 @@ body * {
       /*date tags*/ }
       .issues .single-issue h4 small {
         border-bottom: 1px dotted lightgrey; }
+    .issues .single-issue .status-resolved {
+      float: right;
+      margin: 4px 4px 0 0;
+      color: #F4F7F8;
+      background: #2ecc71;
+      padding: 4px;
+      border-radius: 4px;
+      font-family: "Montserrat";
+      transition: opacity 0.2s; }
+    .issues .single-issue .status-unresolved {
+      float: right;
+      margin: 4px 4px 0 0;
+      color: #F4F7F8;
+      background: red;
+      padding: 4px;
+      border-radius: 4px;
+      font-family: "Montserrat";
+      transition: opacity 0.2s; }
+    .issues .single-issue:hover {
+      /*Status Labels*/ }
+      .issues .single-issue:hover .status-resolved, .issues .single-issue:hover .status-unresolved {
+        opacity: 0; }
 
 /*BUGS*/
 .bugs {
-  /*Single-bugs*/
-  /*RESOLVED*/
-  /*UNRESOLVED*/
-  /*Hover effects*/ }
+  /*Single-bugs*/ }
   .bugs .single-bug {
     background: #F4F7F8;
     padding: 4px 4px 4px 8px;
     border-left: 4px solid #ff002a;
     /*Heading*/
-    border-left-color: red; }
+    /*STATUSES*/
+    /*RESOLVED*/
+    /*UNRESOLVED*/
+    /*Hover effects*/ }
     .bugs .single-bug h4 {
       font-family: "Montserrat";
       color: #ff002a;
       /*date tags*/ }
       .bugs .single-bug h4 small {
         border-bottom: 1px dotted lightgrey; }
-  .bugs .status-resolved {
-    float: right;
-    margin: 4px 4px 0 0;
-    color: #F4F7F8;
-    background: #2ecc71;
-    padding: 4px;
-    border-radius: 4px;
-    font-family: "Montserrat";
-    transition: opacity 0.2s; }
-  .bugs .status-unresolved {
-    float: right;
-    margin: 4px 4px 0 0;
-    color: #F4F7F8;
-    background: red;
-    padding: 4px;
-    border-radius: 4px;
-    font-family: "Montserrat";
-    transition: opacity 0.2s; }
-  .bugs:hover {
-    /*Status Labels*/ }
-    .bugs:hover .status-resolved, .bugs:hover .status-unresolved {
-      opacity: 0; }
+    .bugs .single-bug .status-resolved {
+      float: right;
+      margin: 4px 4px 0 0;
+      color: #F4F7F8;
+      background: #2ecc71;
+      padding: 4px;
+      border-radius: 4px;
+      font-family: "Montserrat";
+      transition: opacity 0.2s; }
+    .bugs .single-bug .status-unresolved {
+      float: right;
+      margin: 4px 4px 0 0;
+      color: #F4F7F8;
+      background: red;
+      padding: 4px;
+      border-radius: 4px;
+      font-family: "Montserrat";
+      transition: opacity 0.2s; }
+    .bugs .single-bug:hover {
+      /*Status Labels*/ }
+      .bugs .single-bug:hover .status-resolved, .bugs .single-bug:hover .status-unresolved {
+        opacity: 0; }
+
+/*CHANGES*/
+.changes {
+  /*Single change*/ }
+  .changes .single-change {
+    background: #F4F7F8;
+    padding: 4px 4px 4px 8px;
+    border-left: 4px solid #f29d1e;
+    /*Heading*/
+    /*STATUSES*/
+    /*RESOLVED*/
+    /*UNRESOLVED*/
+    /*Hover effects*/ }
+    .changes .single-change h4 {
+      font-family: "Montserrat";
+      color: #f29d1e;
+      /*date tags*/ }
+      .changes .single-change h4 small {
+        border-bottom: 1px dotted lightgrey; }
+    .changes .single-change .status-resolved {
+      float: right;
+      margin: 4px 4px 0 0;
+      color: #F4F7F8;
+      background: #2ecc71;
+      padding: 4px;
+      border-radius: 4px;
+      font-family: "Montserrat";
+      transition: opacity 0.2s; }
+    .changes .single-change .status-unresolved {
+      float: right;
+      margin: 4px 4px 0 0;
+      color: #F4F7F8;
+      background: red;
+      padding: 4px;
+      border-radius: 4px;
+      font-family: "Montserrat";
+      transition: opacity 0.2s; }
+    .changes .single-change:hover {
+      /*Status Labels*/ }
+      .changes .single-change:hover .status-resolved, .changes .single-change:hover .status-unresolved {
+        opacity: 0; }
+
+/*THANKS*/
+.thanks {
+  /*Single thanks*/ }
+  .thanks .single-thanks {
+    background: #F4F7F8;
+    padding: 4px 4px 4px 8px;
+    border-left: 4px solid #27ae60;
+    /*Heading*/
+    /*STATUSES*/
+    /*RESOLVED*/
+    /*UNRESOLVED*/
+    /*Hover effects*/ }
+    .thanks .single-thanks h4 {
+      font-family: "Montserrat";
+      color: #27ae60;
+      /*date tags*/ }
+      .thanks .single-thanks h4 small {
+        border-bottom: 1px dotted lightgrey; }
+    .thanks .single-thanks .status-resolved {
+      float: right;
+      margin: 4px 4px 0 0;
+      color: #F4F7F8;
+      background: #2ecc71;
+      padding: 4px;
+      border-radius: 4px;
+      font-family: "Montserrat";
+      transition: opacity 0.2s; }
+    .thanks .single-thanks .status-unresolved {
+      float: right;
+      margin: 4px 4px 0 0;
+      color: #F4F7F8;
+      background: red;
+      padding: 4px;
+      border-radius: 4px;
+      font-family: "Montserrat";
+      transition: opacity 0.2s; }
+    .thanks .single-thanks:hover {
+      /*Status Labels*/ }
+      .thanks .single-thanks:hover .status-resolved, .thanks .single-thanks:hover .status-unresolved {
+        opacity: 0; }
 
 /*LICENSE*/
 .license {
@@ -262,7 +370,10 @@ body * {
   margin: 10px;
   background: #E1EBF5;
   border-radis: 5px;
+  /*Heading*/
   /*Input Boxes*/ }
+  #frm_login h4 {
+    text-align: right; }
   #frm_login input {
     margin: 5px 0 5px 0;
     background: #242B33;
