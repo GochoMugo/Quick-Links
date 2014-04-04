@@ -63,6 +63,11 @@ var QL_MASTER = {
                     break;
                 }
             }
+            // Checking if the Admin is Logged
+            if (QL_MASTER.Admin === '') {
+                QL_MASTER.alert('danger', '<i class="fa fa-times"><i>', '<strong>Incorrect Username or Password</strong>');
+                return;
+            }
             // Logging the Entry of the Admin
             submission = admins[admin].got_in = got_in;
             // Uploading the DATA to FIREBASE
