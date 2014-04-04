@@ -30,7 +30,7 @@ var QL_MASTER = {
                 return;
             case password.value:
                 QL_MASTER.alert('warning', 'Oops!', 'Where\'s the <strong>Password</strong>?');
-                username.focus();
+                password.focus();
                 return;
             }
             // Resetting defaults
@@ -46,12 +46,12 @@ var QL_MASTER = {
     },
     submit: function (username, password) {
         // Showing a Loading status
-        QL_MASTER.btnSubmit.innerHTML = "<i class='fa fa-spinner fa-spin'></i> Sending..";
+        QL_MASTER.btnSubmit.innerHTML = "<i class='fa fa-spinner fa-spin'></i> Wait..";
         QL_MASTER.btnSubmit.className += " active";
         // Reading FB once to Check if it is the Admin
         QL_MASTER.dataRef.once('value', function (snapshot) {
             // Getting all the Admins
-            var admins = snapshot.val().admins,
+            var admins = snapshot.val().MASTER,
                 admin,
                 got_in = new Date(),
                 submission;
