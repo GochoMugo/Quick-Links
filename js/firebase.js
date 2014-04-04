@@ -5,15 +5,11 @@ var QL_webweaver = {
     btnSubmit: document.getElementById("frm_submit"),
     enableBtn: function (message) {
         QL_webweaver.btnSubmit.innerHTML = message;
-        if (QL_webweaver.btnSubmit.className.indexOf("disabled") === -1) {
-          QL_webweaver.btnSubmit.className -= " disabled";  
-        } 
+        QL_webweaver.btnSubmit.className = "btn btn-primary btn-block";  
     },
     disableBtn: function (message) {
         QL_webweaver.btnSubmit.innerHTML = message;
-        if (QL_webweaver.btnSubmit.className.indexOf("disabled") !== -1) {
-          QL_webweaver.btnSubmit.className += " disabled";  
-        }
+        QL_webweaver.btnSubmit.className = "btn btn-primary btn-block disabled";
     },
     alert: function (status, word, message) {
         var result;
