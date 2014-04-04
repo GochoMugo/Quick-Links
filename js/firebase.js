@@ -120,6 +120,7 @@ var QL_webweaver = {
         var auth = new FirebaseSimpleLogin(QL_webweaver.dataRef, function (error, user) {
             if (error) {
                 QL_webweaver.alert('danger', '<i class="fa fa-frown-o"></i>', '<strong>Nooo</strong> Something wrong happened');
+                QL_webweaver.disableBtn("Bust! Security Issues. Reload!");
             } else {
                 QL_webweaver.enableBtn("Send");
             }
@@ -134,7 +135,7 @@ var QL_webweaver = {
 window.onerror = function (msg, url, line) {
     // Firebase is NOT defined 
     QL_webweaver.alert('danger', '<i class="fa fa-cogs fa-lg"></i>', "Message can <strong>NOT</strong> be sent. Try <strong>reloading</strong> the page to send a message.");
-    QL_webweaver.enableBtn("CAN NOT SEND");
+    QL_webweaver.disableBtn("CAN NOT SEND");
 };
 
 /*Document is READY and ALL JS Parsed by engine*/
