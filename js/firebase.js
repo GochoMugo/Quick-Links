@@ -3,6 +3,14 @@ var QL_webweaver = {
     dataRef: '', // Data reference to FIREBASE
     alertBox: document.getElementById("frm_alert"),
     btnSubmit: document.getElementById("frm_submit"),
+    enableBtn: function (message) {
+        QL_webweaver.btnSubmit.innerHTML = message;
+        QL_webweaver.btnSubmit.className += " disabled";
+    },
+    disableBtn: function (message) {
+        QL_webweaver.btnSubmit.innerHTML = message;
+        QL_webweaver.btnSubmit.className -= " disabled";
+    },
     alert: function (status, word, message) {
         var result;
         // DIV Structure of the Message
@@ -70,8 +78,7 @@ var QL_webweaver = {
     },
     submit: function (status, username, email, details) {
         // Showing a Loading status
-        QL_webweaver.btnSubmit.innerHTML = "<i class='fa fa-spinner fa-spin'></i> Sending..";
-        QL_webweaver.btnSubmit.className += " active";
+        QL_webweaver.enableBtn("<i class='fa fa-spinner fa-spin'></i> Sending..");
         // Reading FB once to get the Submission number
         QL_webweaver.dataRef.once('value', function (snapshot) {
            // The submission number
@@ -84,30 +91,40 @@ var QL_webweaver = {
                 "username": username,
                 "email": email,
                 "details": details,
-                "resolved": "unreslved",
+                "resolved": "unresolved",
                 "date": date
             };
             // Uploading the DATA to FIREBASE
-            QL_webweaver.dataRef.update(submission, function (submitted) {
+            QL_webweaver.dataRef.child("messages").update(submission, function (submitted) {
                 if (submitted === null) {
                     // Incrementing the Submissions no
                     QL_webweaver.dataRef.update({"submissions": no});
                     QL_webweaver.alert('success', '<i class="fa fa-thumbs-o-up"></i>', 'Message <strong>sent</strong>. Thanks.');
+                    QL_webweaver.enableBtn("Send");
                 } else {
                     QL_webweaver.alert('danger', '<i class="fa fa-warning"></i>', 'Message could <strong>NOT</strong> be sent. Try again.');
+                    QL_webweaver.enableBtn("Try again");
                 }
-                QL_webweaver.btnSubmit.innerHTML = "Send";
-                QL_webweaver.btnSubmit.className = "btn btn-primary btn-block";
             });
             return;
         }, function (err) {
             // Error Occurred and Submission Number could not be retrieved
-            QL_webweaver.alert('danger', '<i class="fa fa-warning"></i>', '<strong>ERROR</strong> occurred. We working to fix this.');
+            QL_webweaver.alert('danger', '<i class="fa fa-warning"></i>', '<strong>ERROR</strong> occurred. We working to fix this. Try reloading page');
+            QL_webweaver.enableBtn("Try again");
         });
     },
     init: function () {
         /*FIREBASE reference*/
-        QL_webweaver.dataRef = new Firebase('https://quick-links.firebaseio.com/');
+        QL_webweaver.dataRef = new Firebase('https://quick-links.firebaseio.com');
+        /*Authenticating anonymously*/
+        var auth = new FirebaseSimpleLogin(QL_webweaver.dataRef, function (error, user) {
+            if (error) {
+                QL_webweaver.alert('danger', '<i class="fa fa-frown-o"></i>', '<strong>Nooo</strong> Something wrong happened');
+            } else {
+                QL_webweaver.enableBtn("Send");
+            }
+        });
+        auth.login('anonymous');
         /*Click functionality*/
         QL_webweaver.onClick();
     }
@@ -117,8 +134,7 @@ var QL_webweaver = {
 window.onerror = function (msg, url, line) {
     // Firebase is NOT defined 
     QL_webweaver.alert('danger', '<i class="fa fa-cogs fa-lg"></i>', "Message can <strong>NOT</strong> be sent. Try <strong>reloading</strong> the page to send a message.");
-    QL_webweaver.btnSubmit.innerHTML = "CAN NOT SEND";
-    QL_webweaver.btnSubmit.className += " disabled";
+    QL_webweaver.enableBtn("CAN NOT SEND");
 };
 
 /*Document is READY and ALL JS Parsed by engine*/
