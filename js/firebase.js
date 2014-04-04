@@ -121,6 +121,7 @@ var QL_webweaver = {
             if (error) {
                 QL_webweaver.alert('danger', '<i class="fa fa-frown-o"></i>', '<strong>Nooo</strong> Something wrong happened');
                 QL_webweaver.disableBtn("Bust! Security Issues. Reload!");
+                return;
             } else {
                 QL_webweaver.enableBtn("Send");
             }
