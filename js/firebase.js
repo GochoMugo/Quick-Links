@@ -80,7 +80,7 @@ var QL_webweaver = {
         // Showing a Loading status
         QL_webweaver.enableBtn("<i class='fa fa-spinner fa-spin'></i> Sending..");
         // Reading FB once to get the Submission number
-        QL_webweaver.dataRef.once('value', function (snapshot) {
+        QL_webweaver.dataRef.child("submissions").once('value', function (snapshot) {
            // The submission number
             var no = parseFloat(snapshot.val().submissions) + 1,
                 submission = {}, // Creating a JSON object for FIREBASE
