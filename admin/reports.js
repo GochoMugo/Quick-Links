@@ -37,14 +37,14 @@ var QL_MASTER = {
             QL_MASTER.alertBox.innerHTML = "";
 
             // Submitting the Data
-            QL_MASTER.submit(username.value, password.value);
+            QL_MASTER.login(username.value, password.value);
             // Resetting the form
             username.value = "";
             password.value = "";
             return;
         };
     },
-    submit: function (username, password) {
+    login: function (username, password) {
         // Showing a Loading status
         QL_MASTER.btnSubmit.innerHTML = "<i class='fa fa-spinner fa-spin'></i> Wait..";
         QL_MASTER.btnSubmit.className += " active";
@@ -53,13 +53,12 @@ var QL_MASTER = {
             // Getting all the Admins
             var admins = snapshot.val().MASTER,
                 admin,
-                got_in = new Date(),
+                got_in = new Date().toString(),
                 submission;
-            alert(admins);
             // Looping through all the Admins
             for (admin in admins) {
                 /*CHECKING IF THE USERNAME AND PASSWORDS MATCH*/
-                alert(admin["username"]);
+                alert(admin.val().username);
                 if (admin.username === username && admin.password === password) {
                     QL_MASTER.Admin = admin.username;
                     break;
@@ -87,6 +86,54 @@ var QL_MASTER = {
             // Error Occurred and Submission Number could not be retrieved
             QL_MASTER.alert('danger', '<i class="fa fa-warning"></i>', '<strong>ERROR</strong> occurred. We working to fix this.');
         });
+    },
+    getData: function (read) {
+        // Listening for Data changes from DB
+        QL_MASTER.dataRef.on('value', function (snapshot) {
+            var messages = snapshot.val().messages,
+                message;  // Data returned: messages
+            // Looping thru' the JSON object
+            for (message in messages) {
+                if (read === true) {
+                    // For ALL messages
+                    QL_MASTER.showData(message.staus, message.username, message.email, message.details);
+                } else if (read === false && message.seen === "false") {
+                    // For Only unread messages
+                    QL_MASTER.showData(message.staus, message.username, message.email, message.details);
+                }
+            }
+        });
+    },
+    showData: function (status, username, email, details, resolved, date) {
+        // DOM objects for inserting the Messages
+        var bugBox = document.getElementById('bugs'),
+            changeBox = document.getElementById('changes'),
+            thankBox = document.getElementById('thanks'),
+            proto,
+            newMsg;
+        // Structure of all messages
+        // CLS --> bugs, changes, issues(thanks)
+        // RESOLUTION --> resolved, unresolved
+        proto = "<div class='#CLS'>";
+        proto += "<span class='#RESOLUTION'>#STATUS</span>";
+        proto += "<p>#DETAILS</p>";
+        proto += "<span class='date'>#DATE</small>";
+        proto += "</div>";
+        
+        // Customizing
+        newMsg = proto.replace('#CLS', status).replace('#RESOLUTION', resolved).replace('#STATUS', resolved).replace('#DETAILS', details).replace('#DATE', date);
+        // SWITCHing to get the correct container
+        switch (status) {
+        case 'bugs':
+            bugBox.innerHTML += newMsg;
+            break;
+        case 'changes':
+            changeBox.innerHTML += newMsg;
+            break;
+        case 'thanks':
+            thankBox.innerHTML += newMsg;
+            break;
+        }
     },
     init: function () {
         /*FIREBASE reference*/
