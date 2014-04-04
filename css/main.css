@@ -251,8 +251,13 @@ body * {
     background: #242B33;
     color: lightgrey; }
   #correspondence .btn-group-justified {
-    margin-top: -10px;
-    /*Buttons*/ }
+    margin-top: -10px; }
   #correspondence textarea {
     height: 150px;
     resize: none; }
+
+/*LOGIN FORM*/
+#frm_login {
+  padding: 20px;
+  margin: 5px;
+  background: #E1EBF5; }
