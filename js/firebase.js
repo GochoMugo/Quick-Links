@@ -82,7 +82,7 @@ var QL_webweaver = {
         // Reading FB once to get the Submission number
         QL_webweaver.dataRef.child("submissions").once('value', function (snapshot) {
            // The submission number
-            var no = parseFloat(snapshot.val().submissions) + 1,
+            var no = parseFloat(snapshot.val()) + 1,
                 submission = {}, // Creating a JSON object for FIREBASE
                 date = new Date().toString();
             submission[no] = {
