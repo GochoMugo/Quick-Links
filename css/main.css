@@ -264,6 +264,6 @@ body * {
   border-radis: 5px;
   /*Input Boxes*/ }
   #frm_login input {
-    margin-bottom: 5px 0 5px 0;
+    margin: 5px 0 5px 0;
     background: #242B33;
     color: lightgrey; }
