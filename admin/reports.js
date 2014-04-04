@@ -58,6 +58,7 @@ var QL_MASTER = {
             // Looping through all the Admins
             for (admin in admins) {
                 /*CHECKING IF THE USERNAME AND PASSWORDS MATCH*/
+                alert(admin);
                 if (admin.username === username && admin.password === password) {
                     QL_MASTER.Admin = admin.username;
                     break;
