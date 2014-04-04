@@ -77,7 +77,7 @@ var QL_webweaver = {
            // The submission number
             var no = parseFloat(snapshot.val().submissions) + 1,
                 submission = {}, // Creating a JSON object for FIREBASE
-                date = new Date();
+                date = new Date().toString();
             submission[no] = {
                 //"timestamp": QL_webweaver.dataRef.ServerValue.TIMESTAMP,
                 "status": status,
