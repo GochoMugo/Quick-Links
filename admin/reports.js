@@ -51,7 +51,7 @@ var QL_MASTER = {
         // Reading FB once to Check if it is the Admin
         QL_MASTER.dataRef.once('value', function (snapshot) {
             // Getting all the Admins
-            var admins = JSON.parse(snapshot),
+            var admins = JSON.parse(snapshot.val()),
                 admin,
                 got_in = new Date(),
                 submission;
