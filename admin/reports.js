@@ -1,6 +1,6 @@
 /*MAIN GLOBAL OBJECT*/
 var QL_MASTER = {
-    dataRef: '',    // Data reference to FIREBASE
+    dataRef: '',    // Data reference to FIREBASE //
     auth: '',       // Simple Login
     alertBox: document.getElementById("alert_box"),
     btnSubmit: document.getElementById("submit"),
