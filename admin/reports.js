@@ -63,6 +63,7 @@ var QL_MASTER = {
             password: password,
             rememberMe: rememberMe
         });
+        QL_MASTER.getData(false);
     },
     resetPassword: function (email) {
         QL_MASTER.auth.sendPasswordResetEmail(email, function (error, success) {
