@@ -1,6 +1,5 @@
 /*MAIN GLOBAL OBJECT*/
 var QL_MASTER = {
-    Admin: '',      // Name of the Admin
     dataRef: '',    // Data reference to FIREBASE
     auth: '',       // Simple Login
     alertBox: document.getElementById("alert_box"),
@@ -84,10 +83,10 @@ var QL_MASTER = {
             for (message in messages) {
                 if (read === true) {
                     // For ALL messages
-                    QL_MASTER.showData(message.staus, message.username, message.email, message.details);
+                    QL_MASTER.showData(message.status, message.username, message.email, message.details);
                 } else if (read === false && message.seen === "false") {
                     // For Only unread messages
-                    QL_MASTER.showData(message.staus, message.username, message.email, message.details);
+                    QL_MASTER.showData(message.status, message.username, message.email, message.details);
                 }
             }
         });
@@ -102,8 +101,8 @@ var QL_MASTER = {
         // Structure of all messages
         // CLS --> bugs, changes, issues(thanks)
         // RESOLUTION --> resolved, unresolved
-        proto = "<div class='#CLS'>";
-        proto += "<span class='#RESOLUTION'>#STATUS</span>";
+        proto = "<div class='single-#CLS'>";
+        proto += "<span class='status-#RESOLUTION'>#STATUS</span>";
         proto += "<p>#DETAILS</p>";
         proto += "<span class='date'>#DATE</small>";
         proto += "</div>";
