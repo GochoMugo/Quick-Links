@@ -129,7 +129,7 @@ var QL_MASTER = {
             /*Success*/
             if (!error) {
                 QL_MASTER.enableBtn("Get In");
-                QL_MASTER.btnReset.className -= " active";
+                // QL_MASTER.btnReset.className -= " active";
                 /*Click functionality*/
                 QL_MASTER.onClick();
             } else {
