@@ -1,9 +1,19 @@
 /*MAIN GLOBAL OBJECT*/
 var QL_MASTER = {
-    Admin: '', // Name of the Admin
-    dataRef: '', // Data reference to FIREBASE
+    Admin: '',      // Name of the Admin
+    dataRef: '',    // Data reference to FIREBASE
+    auth: '',       // Simple Login
     alertBox: document.getElementById("alert_box"),
     btnSubmit: document.getElementById("submit"),
+    enableBtn: function (message) {
+        QL_MASTER.btnSubmit.innerHTML = message;
+        QL_MASTER.btnSubmit.className = "btn btn-primary pull-right";
+    },
+    disableBtn: function (message) {
+        QL_MASTER.btnSubmit.innerHTML = message;
+        QL_MASTER.btnSubmit.className = "btn btn-primary pull-right disabled";
+    },
+    btnReset: document.getElementById("reset"),
     alert: function (status, word, message) {
         var result;
         // DIV Structure of the Message
@@ -19,13 +29,14 @@ var QL_MASTER = {
     onClick: function () {
         QL_MASTER.btnSubmit.onclick = function () {
             // Variables holding the form elements
-            var username = document.getElementById("username"),
-                password = document.getElementById("password");
+            var email = document.getElementById("email"),
+                password = document.getElementById("password"),
+                rememberMe = document.getElementById("rememberMe");
             
             // Ensuring no Empty textboxes
             switch ("") {
-            case username.value:
-                QL_MASTER.alert('warning', 'Ooh!', '<strong>Username</strong> is undefined');
+            case email.value:
+                QL_MASTER.alert('warning', 'Ooh!', '<strong>Email</strong> is undefined');
                 username.focus();
                 return;
             case password.value:
@@ -37,60 +48,37 @@ var QL_MASTER = {
             QL_MASTER.alertBox.innerHTML = "";
 
             // Submitting the Data
-            QL_MASTER.login(username.value, password.value);
+            QL_MASTER.login(username.value, password.value, rememberMe.value);
             // Resetting the form
-            username.value = "";
+            email.value = "";
             password.value = "";
             return;
         };
     },
-    login: function (username, password) {
+    login: function (email, password, rememberMe) {
         // Showing a Loading status
-        QL_MASTER.btnSubmit.innerHTML = "<i class='fa fa-spinner fa-spin'></i> Wait..";
-        QL_MASTER.btnSubmit.className += " active";
-        // Reading FB once to Check if it is the Admin
-        QL_MASTER.dataRef.once('value', function (snapshot) {
-            // Getting all the Admins
-            var admins = snapshot.val().MASTER,
-                admin,
-                got_in = new Date().toString(),
-                submission;
-            // Looping through all the Admins
-            for (admin in admins) {
-                /*CHECKING IF THE USERNAME AND PASSWORDS MATCH*/
-                alert(admin.val().username);
-                if (admin.username === username && admin.password === password) {
-                    QL_MASTER.Admin = admin.username;
-                    break;
-                }
+        QL_MASTER.disableBtn("<i class='fa fa-spinner fa-spin'></i> Logging in..");
+        // Authenticating
+        QL_MASTER.auth.login('password', {
+            email: email,
+            password: password,
+            rememberMe: rememberMe
+        });
+    },
+    resetPassword: function (email) {
+        QL_MASTER.auth.sendPasswordResetEmail(email, function (error, success) {
+            // Sucess
+            if (!error) {
+                QL_MASTER.alert("success", "<i class='fa fa-check'>", "Password reset email sent successfully");
             }
-            // Checking if the Admin is Logged
-            if (QL_MASTER.Admin === '') {
-                QL_MASTER.alert('danger', '<i class="fa fa-times"><i>', '<strong>Incorrect Username or Password</strong>');
-                return;
-            }
-            // Logging the Entry of the Admin
-            submission = admins[admin].got_in = got_in;
-            // Uploading the DATA to FIREBASE
-            QL_MASTER.dataRef.update(submission, function (submitted) {
-                if (submitted === null) {
-                    // Getting Data
-                } else {
-                    QL_MASTER.alert('danger', '<i class="fa fa-warning"></i> <strong>Sorry!</strong>', 'You could <strong>NOT</strong> Get In');
-                }
-                QL_MASTER.btnSubmit.innerHTML = "Get In";
-                QL_MASTER.btnSubmit.className = "btn btn-primary pull-right";
-            });
-            return;
-        }, function (err) {
-            // Error Occurred and Submission Number could not be retrieved
-            QL_MASTER.alert('danger', '<i class="fa fa-warning"></i>', '<strong>ERROR</strong> occurred. We working to fix this.');
         });
     },
     getData: function (read) {
+        // Detaching any callbacks
+        QL_MASTER.dataRef.off();
         // Listening for Data changes from DB
-        QL_MASTER.dataRef.on('value', function (snapshot) {
-            var messages = snapshot.val().messages,
+        QL_MASTER.dataRef.child("messages").on('value', function (snapshot) {
+            var messages = snapshot.val(),
                 message;  // Data returned: messages
             // Looping thru' the JSON object
             for (message in messages) {
@@ -138,8 +126,18 @@ var QL_MASTER = {
     init: function () {
         /*FIREBASE reference*/
         QL_MASTER.dataRef = new Firebase('https://quick-links.firebaseio.com/');
-        /*Click functionality*/
-        QL_MASTER.onClick();
+        QL_MASTER.auth = FirebaseSimpleLogin(QL_MASTER.dataRef, function (error, user) {
+            /*Success*/
+            if (!error) {
+                QL_MASTER.enableBtn("Get In");
+                QL_MASTER.btnReset.className -= " active";
+                /*Click functionality*/
+                QL_MASTER.onClick();
+            } else {
+                QL_MASTER.alert("danger", "<i class='fa fa-cogs fa-lg'></i>", "Firebase login connection failed");
+                QL_MASTER.disableBtn("Can NOT connect to Firebase");
+            }
+        });
     }
 };
 
@@ -147,8 +145,7 @@ var QL_MASTER = {
 window.onerror = function (msg, url, line) {
     // Firebase is NOT defined 
     QL_MASTER.alert('danger', '<i class="fa fa-cogs fa-lg"></i>', "Impossible to Log In at the moment. Try <strong>reloading</strong> this page.");
-    QL_MASTER.btnSubmit.innerHTML = "CAN NOT LOG IN AT ALL";
-    QL_MASTER.btnSubmit.className += " disabled";
+    QL_MASTER.disableBtn("Impossible to Log In");
 };
 
 /*Document is READY and ALL JS Parsed by engine*/
