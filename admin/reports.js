@@ -12,7 +12,7 @@ var QL_MASTER = {
         QL_MASTER.btnSubmit.innerHTML = message;
         QL_MASTER.btnSubmit.className = "btn btn-primary pull-right disabled";
     },
-    btnReset: document.getElementById("reset"),
+    //btnReset: document.getElementById("reset"),
     alert: function (status, word, message) {
         var result;
         // DIV Structure of the Message
