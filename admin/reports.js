@@ -47,7 +47,7 @@ var QL_MASTER = {
             QL_MASTER.alertBox.innerHTML = "";
 
             // Submitting the Data
-            QL_MASTER.login(username.value, password.value, rememberMe.value);
+            QL_MASTER.login(email.value, password.value, rememberMe.value);
             // Resetting the form
             email.value = "";
             password.value = "";
