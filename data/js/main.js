@@ -6,12 +6,29 @@ var QL_obj = {
         // Icon - class of the icon as in Font Awesome. 
         // Url - address of the Site. 
         // Id - Letters shown next to the Icon
-		document.getElementById('holder').innerHTML = '&middot; <i class="fa ' + icon + ' icon" id="' + url + '"></i><span class="cloud-id">' + id + '</span>' + document.getElementById('holder').innerHTML;
+        
+        // *** HTML Insertion using jQuery
+        var id_besides = document.createElement("span"),
+                new_icon = document.createElement("i");
+        // Styling the Icon
+        new_icon.className = "fa " + icon + " icon";
+        new_icon.id = url;
+        // Adding text and styling the id next to the Icon
+        $(id_besides).text(id);
+        id_besides.className = "cloud-id";
+        
+        // Prepending it to the Container to appear in the Bar
+        $("#holder").prepend(
+            "&middot;", // Separator dot
+            new_icon,
+            id_besides
+        );;
 		return;
 	},
 	init: function (array) { // Initializing function
         // array - array of the ActiveLinks to initialize with
-		document.getElementById('holder').innerHTML = "<i class='fa fa-plus' id='add'></i>"; // Adding the "+" icon to the addon bar
+        // Blanking th Icons
+        $("#holder").text("");
 		if (array.length === 0) {return; } // Array is empty
         // Looping thru' the array
 		for (var i = 0; i < array.length; i++) {

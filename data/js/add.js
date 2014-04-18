@@ -13,7 +13,7 @@ var QL_add = {
 				var table = currentRow.parentNode.parentNode; // the Table
 				var title = currentRow.childNodes[2].innerHTML; // the Name e.g. Codecademy
 				QL_add.generate('remove', '', title); // Updating the JSON object
-				table.innerHTML = table.innerHTML.replace('<tr>' + currentRow.innerHTML + '</tr>', ''); // Removing the Row
+				$(currentRow).remove(); // Using jQuery to remove the Row
 				QL_add.remove(); // Re-putting the Click functionality			
 			}
 		}
@@ -32,24 +32,71 @@ var QL_add = {
         // index        -->
 		var proceed = QL_add.generate('add', table_id, title, icon, url, id, active, asMessage); 
 		if (proceed === false) {return; }
-		document.getElementById('add-alert').innerHTML = '';
-		var checked = ''; // State of the checkbox next to Presets 
-		if (active === true) {checked = 'checked'; } // Setting the State (true/false)
+		$('#add-alert').text(""); // Blanking out the Alert box i.e. Success of the Adding
 
+        /*HTML Insertion using jQuery*/
 		if (table_id === 'major-sites') { // Presets table
-            // Getting the appropriate row
-			var row = document.getElementById(title + '-group').innerHTML;
-			document.getElementById(title + '-group').innerHTML = '<td><input type="checkbox" class="chkbx" id="' + title + '-chkbx" '+ checked + '><label for="' + title + '-chkbx"> </label></td>'; // Checkbox and Label
-			document.getElementById(title + '-group').innerHTML += row;
+		    var new_td_1 = document.createElement('td'),                // The td to insert at the start of the row
+		           newCheckbox = document.createElement('input'),// The checkbox
+		           newLabel = document.createElement('label');          // Label for animation
+		     
+		     // Styling the Checkbox      
+            newCheckbox.className = 'chkbx';
+            newCheckbox.setAttribute('type', 'checkbox');
+            newCheckbox.checked = active;
+            newCheckbox.id = title + '-chkbx';
+            // Styling the Label
+            newLabel.setAttribute('for', title + '-chkbx');    
+		
+		    // Appending the content of the td
+		   $(new_td_1).append(newCheckbox, newLabel);
+		    
+		    // Adding the td to the table
+			$(document.getElementById(title + '-group')).prepend(new_td_1);
 		} else { // User Table
             // Creates a new row to be inserted
-			var newRow = '<tr>';
-				newRow += '<td><input type="checkbox" class="chkbx" id="' + title + '-chkbx" '+ checked + '><label for="' + title + '-chkbx"> </label></td>';
-				newRow += '<td><i class="fa ' + icon + '"></i><span class="cloud-id">' + id + '</span></td>';
-				newRow += '<td>' + title + '</td>';
-				if(table_id === 'add-table') newRow += '<td><i class="fa fa-times"></i></td>';
-			newRow += '</tr>';
-			document.getElementById(table_id).childNodes[1].innerHTML += newRow;
+            var newRow = document.createElement('tr'),                      // Row
+                    newCheckbox = document.createElement('input'),   // Checkbox
+                    newLabel = document.createElement('label'),             // Label
+                    newIcon = document.createElement('i'),                        // Icon
+                    newId = document.createElement('span'),                     // Span for Text/id
+                    newCloseIcon = document.createElement('i'),              // Remove button
+                    new_td_1 = document.createElement('td'),                    // 1st td
+                    new_td_2 = document.createElement('td'),                    // 2nd td
+                    new_td_3 = document.createElement('td'),                    // 3rd td
+                    new_td_4 = document.createElement('td');                    // 4th td
+
+            // Customizing Checkbox
+            newCheckbox.setAttribute('type', 'checkbox');
+            newCheckbox.checked = true;
+            newCheckbox.className = "chkbx";
+            newCheckbox.id = title + "-chkbx";
+            // Customizing the Label
+            newLabel.setAttribute('for', title + '-chkbx');
+            // Customizing the Icon
+            newIcon.className = 'fa ' + icon;
+            // Customizing the Text to appear next to icon
+            newId.className = 'cloud-id';
+            $(newId).text(id); // Adding to the Span
+            // Customizing the Remove button
+            newCloseIcon.className = 'fa fa-times';
+            
+            // Adding Content accordingly
+            $(new_td_1).append(newCheckbox, newLabel),
+            $(new_td_2).append(newIcon, newId),
+            $(new_td_3).append(title),
+            $(new_td_4).append(newCloseIcon)
+            
+            // Appening to the new Row
+            $(newRow).append(
+                $(new_td_1),
+                $(new_td_2),
+                $(new_td_3),
+                $(new_td_4)
+            );
+            
+            // Appending to the Table
+			$('#' + table_id).append(newRow);
 		}
 		QL_add.remove(); // Re-initialize the Click functionality of Close buttons
 		return;
@@ -154,11 +201,19 @@ var QL_add = {
         // Receiving message from translation
 		self.on('message', function (message) {
 			if (message.main === 'translate') {
-				var newAlert = "<div class='alert alert-"+ type +" alert-dismissable'>";
-					newAlert += "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>";
-					newAlert += message.text; // The translation
-				newAlert += "</div>";
-				document.getElementById('add-alert').innerHTML =  newAlert; // Showing to user
+			    var myAlert = document.createElement("div"),
+			            myAlert_closebtn = document.createElement("button");
+	            // Styling the alert
+			    myAlert.className = "alert alert-" + type + " alert-dismissable";
+			    // Styling the Close button
+			    myAlert_closebtn.className = "close";
+			    myAlert_closebtn.setAttribute("data-dismiss", "alert");
+			    myAlert_closebtn.setAttribute("aria-hidden", "true");
+			    $(myAlert_closebtn).append("&times;");
+			    $(myAlert).append(myAlert_closebtn); // Appending the close button
+			    $(myAlert).append(message.text);    // Appending the translated msg
+			    // Showing to User: appending it
+			    $("#add-alert").text("").append(myAlert);
 			}
 		});
 		return;

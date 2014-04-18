@@ -7,6 +7,10 @@
 body {
 	font-family: 'ubuntu';
 }
+/*Styling the Divs*/
+.inline-container {
+    display: inline-block;
+}
 /*Styling the Icons*/
 i {
 	cursor: pointer;
