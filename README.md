@@ -1,4 +1,5 @@
-# QUICK LINKS # 
+# QUICK LINKS 
+
 Currently Version 0.0.2 (Not Published yet)
 
 
@@ -15,7 +16,7 @@ More details can be found in the addon [site][addon-site]
 ### Details ####
 *Current Version* 0.0.2
 
-*Firefox Compatibility* 28.0a - 32.0
+*Firefox Compatibility* 21.0a - 32.0
 
 *Platforms* Linux/Windows/OSx
 
@@ -30,7 +31,7 @@ You can simply download this repo as a ZIP file and directly open the file **qui
 #### Build with addon-sdk-1.16 ####
 1.	Download ZIP or clone this repo.
 2.	Activate your addon-sdk
-3.	Build the addon `cfx xpi`
+3.	Build the addon.
 4.	Open the **quicklinks.xpi** with Firefox
 
 ### Bug Report ###
@@ -42,8 +43,8 @@ All bugs, updates and changes are posted  at the [page][bug-report-page].
 The addon is available under the [*MIT* License][license-page]. 
 
 
-[addon-site]		https://gochomugo.github.io/Quick-Links/index.html "Go to Addon Site"
+[addon-site]:		https://gochomugo.github.io/Quick-Links/index.html "Go to Addon Site"
 [download-mozilla]:	https://addons.mozilla.org/en-US/firefox/addon/quick-links/ "Download from mozilla.org"
-[correspondence]	https://gochomugo.github.io/Quick-Links/bugs_issues.html#correspondence "Report a bug, Suggest a change or Say a Thumbs up"
-[bug-report-page]	https://gochomugo.github.io/Quick-Links/bugs_issues.html "View reported bugs and suggested changed"
+[correspondence]:	https://gochomugo.github.io/Quick-Links/bugs_issues.html#correspondence "Report a bug, Suggest a change or Say a Thumbs up"
+[bug-report-page]:	https://gochomugo.github.io/Quick-Links/bugs_issues.html "View reported bugs and suggested changed"
 [license-page]: 	https://gochomugo.github.io/Quick-Links/license.html "View License"
