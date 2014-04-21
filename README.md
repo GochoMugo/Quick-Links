@@ -1,4 +1,6 @@
-# QUICK LINKS #
+# QUICK LINKS # 
+Currently Version 0.0.2 (Not Published yet)
+
 
 Last Updated: Monday, April 21, 2014
 

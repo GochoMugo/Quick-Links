@@ -1,5 +1,5 @@
-ChangeLog [0.0.2]
-=================
+ChangeLog [0.0.2][0]
+====================
 
 1. More light-weight [Improv]
 	* Unrequired Jquery Files have been deleted
@@ -14,8 +14,8 @@ ChangeLog [0.0.2]
 
 
 
-ChangeLog [0.0.1]
-=================
+ChangeLog [0.0.1][0]
+====================
 1. Icons added [Improv]
         * icon.png(48 x 48) and icon64.png(64 x 64) have been added
 2. Package.json updated for icons and semantic versioning [Improv]
