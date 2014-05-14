@@ -2,7 +2,7 @@
 
 ## Project Website
 
-*Website last updated: 23th April, 2014*
+*Website last updated: 14th May, 2014*
 
 This contains the Source code for the Project [Site][main-site]. The website is hosted using [Github pages][github-pages]
 
