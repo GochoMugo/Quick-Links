@@ -1,34 +1,34 @@
-ChangeLog [0.0.2][0]
+[0.0.2]
 ====================
 
-1. More light-weight [Improv]
-	* Unrequired Jquery Files have been deleted
-	* Non-minified css and js in both Bootstrap and Font Awesome Library have been removed
-2. Semantic Versioning Enforcement [Improv]
-	* First-run shows the correct addon version
-3. Compatibility specification in First-run.html corrected for accuracy [Improv]
-4. Version updated in package.json [Improv]
-5. Links in first-run.html removed [Bug]
-	* The images were wrapped in Links with href attr pointing to the images dir
-	* However the Link was "dead". Image didn't show up
+1.  +   More light-weight 
+	        * Unrequired Jquery Files have been deleted
+	        * Non-minified css and js in both Bootstrap and Font Awesome Library have been removed
+2.  +   Semantic Versioning Enforcement [Improv]
+	        * First-run shows the correct addon version
+3.  +   Compatibility specification in First-run.html corrected for accuracy [Improv]
+4.  +   Version updated in package.json [Improv]
+5.  =   Links in first-run.html removed [Bug]
+	        * The images were wrapped in Links with href attr pointing to the images dir
+	        * However the Link was "dead". Image didn't show up
 
 
 
-ChangeLog [0.0.1][0]
+[0.0.1]
 ====================
-1. Icons added [Improv]
-        * icon.png(48 x 48) and icon64.png(64 x 64) have been added
-2. Package.json updated for icons and semantic versioning [Improv]
-3. Holder.js in Bootstrap is removed [Bug][Secur]
-4. HTML Insertion.  [Bug][Secur]
-        *Security measure
-        *Ineffeciency
-        *All .innerHTML += operations are now handled with jQuery's .append() a$
-        *All .innerHTML -= operations are now handled with jQuery's .remove()
-        *No more usanitized html. The elements required are created using docum$
+1.  +   Icons added [Improv]
+            * icon.png(48 x 48) and icon64.png(64 x 64) have been added
+2.  +   Package.json updated for icons and semantic versioning [Improv]
+3.  =   Holder.js in Bootstrap is removed [Bug][Secur]
+4.  =   HTML Insertion.  [Bug][Secur]
+            *Security measure
+            *Ineffeciency
+            *All .innerHTML += operations are now handled with jQuery's .append() a$
+            *All .innerHTML -= operations are now handled with jQuery's .remove()
+            *No more usanitized html. The elements required are created using docum$
 
-5. Compatibility Tested [Improv]
-        * 21.0a - 32.0
+5.  +   Compatibility Tested [Improv]
+            * 21.0a - 32.0
 
 Validation Results: https://addons.mozilla.org/en-US/developers/upload/e14fb93a$
 
