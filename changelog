@@ -11,6 +11,29 @@
 5.  =   Links in first-run.html removed [Bug]
 	        * The images were wrapped in Links with href attr pointing to the images dir
 	        * However the Link was "dead". Image didn't show up
+6.  +   Font-Awesome upgraded to 4.1.0
+7.  +   More default icons:  (15 new)
+            + Apple
+            + Codepen
+            + Drupal
+            + Git
+            + Google
+            + Pinterest
+            + SoundCloud
+            + Stack Exchange
+            + Stack Overflow
+            + Steam
+            + Tumblr
+            + Vimeo
+            + Windows
+            + Wordpress
+            + Yahoo
+8.  +   More custom icons: (2 new)
+            + comments
+            + cutlery
+            + flag
+            + institution
+            + paper-plane
 
 
 

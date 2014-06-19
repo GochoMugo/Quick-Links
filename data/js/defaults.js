@@ -18,6 +18,14 @@ PROPERTIES OF INDIVIDUAL LINK OBJECT
 QL_defaults.links = [
 	{
 		"type" : "default",
+		"icon" : "fa-apple",
+		"name" : "Apple",
+		"url" : "https://www.apple.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
 		"icon" : "fa-bitbucket",
 		"name" : "Bitbucket",
 		"url" : "https://bitbucket.com/",
@@ -34,9 +42,25 @@ QL_defaults.links = [
 	},
 	{
 		"type" : "default",
+		"icon" : "fa-codepen",
+		"name" : "Codepen",
+		"url" : "https://codepen.io/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
 		"icon" : "fa-dropbox",
 		"name" : "Dropbox",
 		"url" : "https://dropbox.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
+		"icon" : "fa-drupal",
+		"name" : "Drupal",
+		"url" : "https://www.drupal.org/",
 		"icon_id": " ",
 		"active": false
 	},
@@ -58,9 +82,25 @@ QL_defaults.links = [
 	},
 	{
 		"type" : "default",
+		"icon" : "fa-git",
+		"name" : "Git",
+		"url" : "http://git-scm.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
 		"icon" : "fa-github",
 		"name" : "Github",
 		"url" : "https://github.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
+		"icon" : "fa-google",
+		"name" : "Google",
+		"url" : "https://google.com/",
 		"icon_id": " ",
 		"active": false
 	},
@@ -90,9 +130,57 @@ QL_defaults.links = [
 	},
 	{
 		"type" : "default",
+		"icon" : "fa-pinterest",
+		"name" : "Pinterest",
+		"url" : "https://www.pinterest.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
 		"icon" : "fa-skype",
 		"name" : "Skype",
 		"url" : "http://skype.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
+		"icon" : "fa-soundcloud",
+		"name" : "SoundCloud",
+		"url" : "https://soundcloud.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
+		"icon" : "fa-stack-exchange",
+		"name" : "StackExchange",
+		"url" : "https://stackexchange.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
+		"icon" : "fa-stack-overflow",
+		"name" : "StackOverflow",
+		"url" : "https://stackoverflow.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
+		"icon" : "fa-steam",
+		"name" : "Steam",
+		"url" : "http://store.steampowered.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
+		"icon" : "fa-tumblr",
+		"name" : "Tumblr",
+		"url" : "https://www.tumblr.com/",
 		"icon_id": " ",
 		"active": false
 	},
@@ -106,7 +194,39 @@ QL_defaults.links = [
 	},
 	{
 		"type" : "default",
-		"icon" : "fa-youtube",
+		"icon" : "fa-vimeo-square",
+		"name" : "Vimeo",
+		"url" : "https://vimeo.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
+		"icon" : "fa-windows",
+		"name" : "Windows",
+		"url" : "http://windows.microsoft.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
+		"icon" : "fa-wordpress",
+		"name" : "Wordpress",
+		"url" : "https://wordpress.org/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
+		"icon" : "fa-yahoo",
+		"name" : "Yahoo",
+		"url" : "https://www.yahoo.com/",
+		"icon_id": " ",
+		"active": false
+	},
+	{
+		"type" : "default",
+		"icon" : "fa-youtube-play",
 		"name" : "YouTube",
 		"url" : "https://youtube.com/",
 		"icon_id": " ",
