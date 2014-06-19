@@ -3,7 +3,7 @@
 Currently Version 0.0.2 (Not Published yet)
 
 
-Last Updated: Monday, April 21, 2014
+Last Updated: Thursday, June 19, 2014
 
 ### Description ###
 > Tired or typing and re-typing URLs in your Address bar. Here comes Quick Links
@@ -18,7 +18,7 @@ More details can be found in the addon [site][addon-site]
 
 *Firefox Compatibility* 21.0a - 32.0
 
-*Platforms* Linux/Windows/OSx
+*Platforms* Linux/Windows/MacOSx
 
 ### Downloads ###
 
@@ -43,8 +43,8 @@ All bugs, updates and changes are posted  at the [page][bug-report-page].
 The addon is available under the [*MIT* License][license-page]. 
 
 
-[addon-site]:		https://gochomugo.github.io/Quick-Links/index.html "Go to Addon Site"
-[download-mozilla]:	https://addons.mozilla.org/en-US/firefox/addon/quick-links/ "Download from mozilla.org"
-[correspondence]:	https://gochomugo.github.io/Quick-Links/bugs_issues.html#correspondence "Report a bug, Suggest a change or Say a Thumbs up"
-[bug-report-page]:	https://gochomugo.github.io/Quick-Links/bugs_issues.html "View reported bugs and suggested changed"
-[license-page]: 	https://gochomugo.github.io/Quick-Links/license.html "View License"
+[addon-site]:	https://gochomugo.github.io/Quick-Links/index.html "Go to Addon Site"
+[download-mozilla]:https://addons.mozilla.org/en-US/firefox/addon/quick-links/ "Download from mozilla.org"
+[correspondence]:https://gochomugo.github.io/Quick-Links/bugs_issues.html#correspondence "Report a bug, Suggest a change or Say a Thumbs up"
+[bug-report-page]:https://gochomugo.github.io/Quick-Links/bugs_issues.html "View reported bugs and suggested changed"
+[license-page]:https://gochomugo.github.io/Quick-Links/license.html "View License"
