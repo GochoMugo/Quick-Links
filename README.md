@@ -1,9 +1,8 @@
 # QUICK LINKS 
 
-Currently Version 0.0.2 (Not Published yet)
+Currently Version 0.1.0
 
-
-Last Updated: Thursday, June 19, 2014
+Last Updated: Thursay, June 19, 2014
 
 ### Description ###
 > Tired or typing and re-typing URLs in your Address bar. Here comes Quick Links
@@ -14,21 +13,23 @@ This Mozilla Addon adds iconic links to the browser addon bar(statusbar) that le
 More details can be found in the addon [site][addon-site]
 
 ### Details ####
-*Current Version* 0.0.2
 
-*Firefox Compatibility* 21.0a - 32.0
-
-*Platforms* Linux/Windows/MacOSx
+|Aspect|Detail|
+|---------|---------:|
+|*Current Version*| 0.0.2|
+|*Firefox Compatibility*| 21.0a - 32.0|
+|*Platforms*| Linux/Windows/OSx|
+|*Review Status*|Awaiting full review|
 
 ### Downloads ###
 
-#### Mozilla.org (recommended) ####
+#### 1. Mozilla.org (recommended) ####
 The Addon is listed on the Mozilla.org site [here][download-mozilla].
 
-#### XPI in Repository ####
+#### 2. XPI in Repository ####
 You can simply download this repo as a ZIP file and directly open the file **quicklinks.xpi** with Firefox.
 
-#### Build with addon-sdk-1.16 ####
+#### 3. Build with addon-sdk-1.16 ####
 1.	Download ZIP or clone this repo.
 2.	Activate your addon-sdk
 3.	Build the addon.

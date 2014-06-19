@@ -1,240 +1,236 @@
 // Object holding the Presets
-var QL_defaults = {
-	main: 'defaults', // Purpose of the object
-	links: ''
+var QL_presets = {
+	aim: 'presets', // Purpose of the object
+	content: '',
+	count: 0
 };
 
 /*
 PROPERTIES OF INDIVIDUAL LINK OBJECT
 ====================================
-- type      --> Shows if its a Preset ("default") or Custom ("user")
-- icon      --> Class name of the associated icon as in "Font Awesome"
-- name      --> Name of the Web Site e.g. Facebook
+- type      --> Shows if its a Preset () or Custom ("user")
+- icon      --> Class display_name of the associated icon as in "Font Awesome"
+- display_name      --> display_name of the Web Site e.g. Facebook
 - url       --> URL address of the Site (HTTPS recommended)
 - icon_id   --> Useful for Custom links.
 - active    --> Boolean. If true, it's shown on add-on bar
 */
 
-QL_defaults.links = [
+QL_presets.content = [
 	{
-		"type" : "default",
+		"id":"Apple",
 		"icon" : "fa-apple",
-		"name" : "Apple",
+		"display_name" : "Apple",
 		"url" : "https://www.apple.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id":"Bitbucket",
 		"icon" : "fa-bitbucket",
-		"name" : "Bitbucket",
+		"display_name" : "Bitbucket",
 		"url" : "https://bitbucket.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Bitcoin",
 		"icon" : "fa-bitcoin",
-		"name" : "Bitcoin",
+		"display_name" : "Bitcoin",
 		"url" : "http://bitcoin.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Codepen",
 		"icon" : "fa-codepen",
-		"name" : "Codepen",
+		"display_name" : "Codepen",
 		"url" : "https://codepen.io/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Dropbox",
 		"icon" : "fa-dropbox",
-		"name" : "Dropbox",
+		"display_name" : "Dropbox",
 		"url" : "https://dropbox.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Drupal",
 		"icon" : "fa-drupal",
-		"name" : "Drupal",
+		"display_name" : "Drupal",
 		"url" : "https://www.drupal.org/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Facebook",
 		"icon" : "fa-facebook",
-		"name" : "Facebook",
+		"display_name" : "Facebook",
 		"url" : "https://facebook.com/",
-		"icon_id": " ",
 		"active": true
 	},
 	{
-		"type" : "default",
+		"id": "Flickr",
 		"icon" : "fa-flickr",
-		"name" : "Flickr",
+		"display_name" : "Flickr",
 		"url" : "https://flickr.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Git",
 		"icon" : "fa-git",
-		"name" : "Git",
+		"display_name" : "Git",
 		"url" : "http://git-scm.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Github",
 		"icon" : "fa-github",
-		"name" : "Github",
+		"display_name" : "Github",
 		"url" : "https://github.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Google",
 		"icon" : "fa-google",
-		"name" : "Google",
+		"display_name" : "Google",
 		"url" : "https://google.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "GooglePlus",
 		"icon" : "fa-google-plus",
-		"name" : "Google-Plus",
+		"display_name" : "Google-Plus",
 		"url" : "https://plus.google.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Instagram",
 		"icon" : "fa-instagram",
-		"name" : "Instagram",
+		"display_name" : "Instagram",
 		"url" : "http://instagram.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "LinkedIn",
 		"icon" : "fa-linkedin",
-		"name" : "LinkedIn",
+		"display_name" : "LinkedIn",
 		"url" : "https://linkedin.com/",
-		"icon_id": " ",
 		"active": true
 	},
 	{
-		"type" : "default",
+		"id": "Pinterest",
 		"icon" : "fa-pinterest",
-		"name" : "Pinterest",
+		"display_name" : "Pinterest",
 		"url" : "https://www.pinterest.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Skype",
 		"icon" : "fa-skype",
-		"name" : "Skype",
+		"display_name" : "Skype",
 		"url" : "http://skype.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "SoundCloud",
 		"icon" : "fa-soundcloud",
-		"name" : "SoundCloud",
+		"display_name" : "SoundCloud",
 		"url" : "https://soundcloud.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "StackExchange",
 		"icon" : "fa-stack-exchange",
-		"name" : "StackExchange",
+		"display_name" : "Stack Exchange",
 		"url" : "https://stackexchange.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "StackOverflow",
 		"icon" : "fa-stack-overflow",
-		"name" : "StackOverflow",
+		"display_name" : "Stack Overflow",
 		"url" : "https://stackoverflow.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Steam",
 		"icon" : "fa-steam",
-		"name" : "Steam",
+		"display_name" : "Steam",
 		"url" : "http://store.steampowered.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+        "id": "Tumblr",
 		"icon" : "fa-tumblr",
-		"name" : "Tumblr",
+		"display_name" : "Tumblr",
 		"url" : "https://www.tumblr.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Twitter",
 		"icon" : "fa-twitter",
-		"name" : "Twitter",
+		"display_name" : "Twitter",
 		"url" : "https://twitter.com/",
-		"icon_id": " ",
 		"active": true
 	},
 	{
-		"type" : "default",
+		"id": "Vimeo",
 		"icon" : "fa-vimeo-square",
-		"name" : "Vimeo",
+		"display_name" : "Vimeo",
 		"url" : "https://vimeo.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Windows",
 		"icon" : "fa-windows",
-		"name" : "Windows",
+		"display_name" : "Windows",
 		"url" : "http://windows.microsoft.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Wordpress",
 		"icon" : "fa-wordpress",
-		"name" : "Wordpress",
+		"display_name" : "Wordpress",
 		"url" : "https://wordpress.org/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "Yahoo",
 		"icon" : "fa-yahoo",
-		"name" : "Yahoo",
+		"display_name" : "Yahoo",
 		"url" : "https://www.yahoo.com/",
-		"icon_id": " ",
 		"active": false
 	},
 	{
-		"type" : "default",
+		"id": "YouTube",
 		"icon" : "fa-youtube-play",
-		"name" : "YouTube",
+		"display_name" : "YouTube",
 		"url" : "https://youtube.com/",
-		"icon_id": " ",
 		"active": false
 	}
 ];
 
 // If messaged 'appropriately', the Presets are messaged back
 self.on('message', function (message) {
-	if (message === 'defaults') {self.postMessage(QL_defaults); }
+	switch (message.aim) {
+	case 'presets':
+	    console.log("SENDING PRESETS....");
+	    self.postMessage(QL_presets); 
+        break;
+    case "translated":
+        console.log("RECEIVING TRANSLATION...... " + message.content[0] + " as " + message.content[1]);
+        QL_presets.content.forEach(function (link) {
+            if (link.id === message.content[0]) {
+                link.display_name = message.content[1];
+                if (--QL_presets.count === 0) {self.postMessage(QL_presets);}
+                return;
+            }
+        });
+        break;
+    } 
+});
+
+// Getting the translations for the Display names
+QL_presets.content.forEach(function (link) {
+    QL_presets.count++;
+    console.log("PLEASE TRANSLATE...." + link.id + " ~to~ " + link.display_name + " at " + QL_presets.count);
+    self.postMessage({"aim": "translate", "content": link.id});
 });

@@ -1,50 +1,55 @@
 /*HANDLES LINKS ON THE ADDON BAR*/
-// "holder" - id of container of the links in the HTML document
-
 var QL_obj = {
-	add: function (icon, url, id) { // Adding Links to the addon bar. 
-        // Icon - class of the icon as in Font Awesome. 
-        // Url - address of the Site. 
-        // Id - Letters shown next to the Icon
+	add: function (icon_class, url, id) { 
+	    /*
+	    * Adds links to the addon bar
+	    */
         
-        // *** HTML Insertion using jQuery
-        var id_besides = document.createElement("span"),
-                new_icon = document.createElement("i");
+        var create = function (el) document.createElement(el),
+                span = create("span"),
+                icon = create("i");
+        console.log("ACTIVE ICON >>>>>> " + icon_class + " " + id);
         // Styling the Icon
-        new_icon.className = "fa " + icon + " icon";
-        new_icon.id = url;
+        icon.className = "fa " + icon_class + " icon";
+        icon.id = url;
         // Adding text and styling the id next to the Icon
-        $(id_besides).text(id);
-        id_besides.className = "cloud-id";
+        $(span).text(id);
+        //span.className = "cloud-id";
         
         // Prepending it to the Container to appear in the Bar
-        $("#holder").prepend(
-            "&middot;", // Separator dot
-            new_icon,
-            id_besides
-        );;
+        $("#holder").prepend("&middot;", icon, span);
 		return;
 	},
-	init: function (array) { // Initializing function
-        // array - array of the ActiveLinks to initialize with
-        // Blanking th Icons
-        $("#holder").text("");
-		if (array.length === 0) {return; } // Array is empty
-        // Looping thru' the array
+	init: function (array) { 
+	    /*
+	    * INITIALIZER. 
+	    * 1. Empty the Holder in addonbar
+	    * 2. If the array is empty, it should return immediately.
+	    * 3. Loops through links to add ONLY active links to the addon bar
+	    * 4. Add the click functionality to icons
+	    * 5. Add the click functionality to show panel
+        */
+
+        $("#holder").empty();
+		if (array.length === 0) {return; }
+
 		for (var i = 0; i < array.length; i++) {
-			QL_obj.add(array[i].icon, array[i].url, array[i].icon_id); // ADD
+			if (array[i].keyword) {
+			    QL_obj.add(array[i].icon, array[i].url, array[i].keyword);
+		    } else {
+                QL_obj.add(array[i].icon, array[i].url, '');
+		    }
 		}
 
-		var collection = document.getElementsByClassName('icon'); // All the icons added.
-        // Adding the Click functionality for the Links for opening tabs
+		var collection = document.getElementsByClassName('icon'); 
 		for (var j = 0; j < collection.length; j++) {
 			collection[j].onclick = function () {
-				self.postMessage(this.id); // Posting message so a new tab is added
+				self.postMessage({"aim": "url", "content": this.id});
 			}
 		}
-        // Adding the Click functionality for Showing the panel
+
 		document.getElementById('add').onclick = function () {
-			self.postMessage('add'); // Posting message so the panel is shown
+			self.postMessage({"aim":"open_panel"});
 		}
 		return;
 	}
@@ -52,5 +57,7 @@ var QL_obj = {
 
 /*Receiving messages*/
 self.on('message', function (message) {
-	QL_obj.init(message); // Initializing & re-initializing
+	if (message.aim === "update") {
+	    QL_obj.init(message.content); // Initializing & re-initializing    
+	}
 });
