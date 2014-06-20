@@ -210,27 +210,29 @@ QL_presets.content = [
 
 // If messaged 'appropriately', the Presets are messaged back
 self.on('message', function (message) {
+    /*
+    * Handling messages received to this script
+    *   "presets" - send back the presets. Invokes the translation.
+    *   "translated" - a translated preset has been sent back. Looks for the 
+    *       target link and updates it. If no more translations are expected, send 
+    *       the links 
+    */
 	switch (message.aim) {
 	case 'presets':
-	    console.log("SENDING PRESETS....");
-	    self.postMessage(QL_presets); 
+        QL_presets.content.forEach(function (link) {
+            QL_presets.count++;
+            self.postMessage({"aim": "translate", "content": link.id});
+        });
         break;
     case "translated":
-        console.log("RECEIVING TRANSLATION...... " + message.content[0] + " as " + message.content[1]);
         QL_presets.content.forEach(function (link) {
             if (link.id === message.content[0]) {
                 link.display_name = message.content[1];
-                if (--QL_presets.count === 0) {self.postMessage(QL_presets);}
-                return;
+                QL_presets.count--;
             }
         });
+        if (QL_presets.count === 0) {self.postMessage(QL_presets);}
         break;
     } 
 });
 
-// Getting the translations for the Display names
-QL_presets.content.forEach(function (link) {
-    QL_presets.count++;
-    console.log("PLEASE TRANSLATE...." + link.id + " ~to~ " + link.display_name + " at " + QL_presets.count);
-    self.postMessage({"aim": "translate", "content": link.id});
-});

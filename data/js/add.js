@@ -43,16 +43,18 @@ var QL_add = {
             var cell4 = create("td"), closeIcon = create("i") ;
             closeIcon.className = "fa fa-times";
             $(cell4).append(closeIcon);
-            $(row).append(cell4);            
+            $(row).append(cell4); 
        }
        /*Inserting into DOM*/
        $("#" + table_id).append(row);
 	},
 	postback: function () {
 	    /*
+	    * Checks whether the links have been updated
 	    * Handles getting the check state of all the checkboxes and adding to the 
 	    * property of each link. Then sends back the links
 	    */
+	    console.log("UPDATE FROM PANEL>>>>>>>>>>>>>>>>>>.");
 	    QL_add.links.forEach(function (link) {
 	        link.active = document.getElementById(link.id).checked;
 	    });
@@ -62,12 +64,10 @@ var QL_add = {
 	    /*
 	    * This will receive the links and place them in the links property pf QL_add
 	    * It will also initiate the HTML manipulation
-	    table_id, id, icon, active, display_name, 
-	                                            keyword, type
 	    */
-	    QL_add.links = links;
+	    QL_add.links =  links;
 	    links.forEach(function (link) {
-	        if (link.type === 'custom') {
+	        if (link.keyword) {
 	            QL_add.generateHTML("add-table" , link.id, link.icon, link.active, 
 	                                                link.display_name, link.keyword, "custom");
 	        } else {
@@ -113,16 +113,19 @@ var QL_add = {
 		switch (event) {
 		case "alert_BlankTitle":
 		case "alert_ExistingTitle":
-		    document.getElementById('add-title').parentNode.className += ' has-warning';
+		    document.getElementById('add-title')
+		        .parentNode.className += ' has-warning';
 			document.getElementById('add-title').focus();
 		    break;
 	    case "alert_BlankUrl":
-	         document.getElementById('add-url').parentNode.className += ' has-warning';
+	         document.getElementById('add-url')
+	            .parentNode.className += ' has-warning';
 			document.getElementById('add-url').focus();
 	        break;
         case "alert_BlankIdentifier":
         case "alert_MaxIdLength":
-             document.getElementById('add-id').parentNode.className += ' has-warning';
+             document.getElementById('add-id')
+                .parentNode.className += ' has-warning';
 			document.getElementById('add-id').focus();
             break;
 		}
@@ -177,15 +180,16 @@ var QL_add = {
 	removeLink: function () {
 	    /*
 	    * Removes links from the table and in the links array
+	    * Gets All the close icons and applys the functionality to them
 	    */
-		QL_add.collection = document.getElementsByClassName('fa-times'); // All the close icons
+		QL_add.collection = document.getElementsByClassName('fa-times');
         // Looping thru' the Icons
 		for (var i = 0; i < QL_add.collection.length; i++) {
             // Adding the Click functionality
 			QL_add.collection[i].onclick = function () {
 				var currentRow = this.parentNode.parentNode; // the Row
 				var table = currentRow.parentNode.parentNode; // the Table
-				var title = currentRow.childNodes[2].innerHTML; // the Name e.g. Codecademy
+				var title = currentRow.childNodes[2].innerHTML; // the Title
 				$(currentRow).remove(); // Using jQuery to remove the Row
 				
 				var newArray = [];

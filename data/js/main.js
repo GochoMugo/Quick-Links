@@ -14,7 +14,6 @@ var QL_obj = {
         icon.id = url;
         // Adding text and styling the id next to the Icon
         $(span).text(id);
-        //span.className = "cloud-id";
         
         // Prepending it to the Container to appear in the Bar
         $("#holder").prepend("&middot;", icon, span);
@@ -30,7 +29,7 @@ var QL_obj = {
 	    * 5. Add the click functionality to show panel
         */
 
-        $("#holder").empty();
+        $("#holder").text("");
 		if (array.length === 0) {return; }
 
 		for (var i = 0; i < array.length; i++) {
