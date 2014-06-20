@@ -41,7 +41,7 @@ All bugs, updates and changes are posted  at the [page][bug-report-page].
 ### License ###
 The addon is available under the [*MIT* License][license-page]. 
 
-[logo]:./icon64.png "Quick Links"
+[logo]:https://gochomugo.github.io/Quick-Links/images/logo.png "Quick Links"
 [addon-site]:	https://gochomugo.github.io/Quick-Links/index.html "Go to Addon Site"
 [download-mozilla]:https://addons.mozilla.org/en-US/firefox/addon/quick-links/ "Download from mozilla.org"
 [correspondence]:https://gochomugo.github.io/Quick-Links/bugs_issues.html#correspondence "Report a bug, Suggest a change or Say a Thumbs up"
