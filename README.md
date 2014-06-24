@@ -1,11 +1,11 @@
 # QUICK LINKS ![logo][logo] #
 
-README Last Updated: Friday, June 20, 2014
+README Last Updated: Tuesday, June 24, 2014
 
 ### Description ###
 > Tired or typing and re-typing URLs in your Address bar. Here comes Quick Links
 
-This Mozilla Addon adds iconic links to the browser addon bar(statusbar) that lets the user click on them and *quickly* open the allocated URL in anew tab.
+This Mozilla Addon adds iconic links to the browser addon bar (status bar) that lets you click on them and *quickly* open the allocated URL in a new tab.
 
 ### Homepage ###
 More details can be found in the addon [site][addon-site]
@@ -17,7 +17,9 @@ More details can be found in the addon [site][addon-site]
 |*Current Version*| 0.0.2|
 |*Firefox Compatibility*| 21.0a - 32.0|
 |*Platforms*| Linux/Windows/MacOSx|
-|*Review Status*|Awaiting full review|
+|*Review Status*|Fully reviewed|
+
+> **Please Note:** Users of v0.0.1 can **NOT** update to v0.0.2. This update will break the addon. For this reason, you won't find it on **Mozilla.org**
 
 ### Downloads ###
 
@@ -42,7 +44,7 @@ All bugs, updates and changes are posted  at the [page][bug-report-page].
 The addon is available under the [*MIT* License][license-page]. 
 
 [logo]:https://gochomugo.github.io/Quick-Links/images/logo.png "Quick Links"
-[addon-site]:	https://gochomugo.github.io/Quick-Links/index.html "Go to Addon Site"
+[addon-site]:https://gochomugo.github.io/Quick-Links/index.html "Go to Addon Site"
 [download-mozilla]:https://addons.mozilla.org/en-US/firefox/addon/quick-links/ "Download from mozilla.org"
 [correspondence]:https://gochomugo.github.io/Quick-Links/bugs_issues.html#correspondence "Report a bug, Suggest a change or Say a Thumbs up"
 [bug-report-page]:https://gochomugo.github.io/Quick-Links/bugs_issues.html "View reported bugs and suggested changed"
