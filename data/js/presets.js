@@ -74,6 +74,13 @@ QL_presets.content = [
 		"active": false
 	},
 	{
+		"id": "Foursquare",
+		"icon" : "fa-foursquare",
+		"display_name" : "Foursquare",
+		"url" : "https://foursquare.com/",
+		"active": false
+	},
+	{
 		"id": "Git",
 		"icon" : "fa-git",
 		"display_name" : "Git",
@@ -106,6 +113,13 @@ QL_presets.content = [
 		"icon" : "fa-instagram",
 		"display_name" : "Instagram",
 		"url" : "http://instagram.com/",
+		"active": false
+	},
+	{
+		"id": "JSFiddle",
+		"icon" : "fa-jsfiddle",
+		"display_name" : "JSFiddle",
+		"url" : "http://jsfiddle.net/",
 		"active": false
 	},
 	{
@@ -155,6 +169,13 @@ QL_presets.content = [
 		"icon" : "fa-steam",
 		"display_name" : "Steam",
 		"url" : "http://store.steampowered.com/",
+		"active": false
+	},
+	{
+        "id": "Trello",
+		"icon" : "fa-trello",
+		"display_name" : "Trello",
+		"url" : "https://trello.com/",
 		"active": false
 	},
 	{

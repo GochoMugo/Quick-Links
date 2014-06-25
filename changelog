@@ -9,6 +9,10 @@
 2.  +   Added a background image on the panel [Improv]
 3.  +   Added a hotkey for quickly creating a quick link [Improv]
 4.  =   Graceful migration from v0.0.2 to v0.1.0 [Bug]
+5.  +   More preset icons: (3 new) [Improv]
+            + Foursquare
+            + JSFiddle
+            + Trello
 
 
 [0.0.2]
@@ -27,7 +31,7 @@
 	        * The images were wrapped in Links with href attr pointing to the images dir
 	        * However the Link was "dead". Image didn't show up
 6.  +   Font-Awesome upgraded to 4.1.0 [Improv]
-7.  +   More default icons:  (15 new) [Improv]
+7.  +   More preset icons:  (15 new) [Improv]
             + Apple
             + Codepen
             + Drupal
