@@ -238,12 +238,20 @@ var QL_add = {
 			if (url === '') {QL_add.alert('warning', 'alert_BlankUrl'); return;}
 			if (id === '') {QL_add.alert('warning', 'alert_BlankIdentifier'); return;}
 			if (id.length > 2) {QL_add.alert('danger', 'alert_MaxIdLength'); return;}
-			// id, icon, name, url, active, keyword
 			QL_add.newLink(title, icon, title, url, true, id);
 			
 			QL_add.reset("hard");
 			return;
 		}
+	},
+	bookmark: function (title, url) {
+	    /*
+	    * Activates the second tab
+	    * Fills the Title and URL textboxes with the params passed
+	    */
+	    $('#ctrl-tabs #tab_2').tab('show');
+	    document.getElementById('add-title').value = title;
+		document.getElementById('add-url').value = url;
 	},
 	closeBtn: function () {
 	    /*Adds the Add functionality to the 'add' button*/
@@ -268,8 +276,12 @@ var QL_add = {
             case "links":
                 QL_add.receivelinks(message.content);
                 break;
+            case "bookmark":
+                QL_add.bookmark(message.content.title, message.content.url);
+                break;
             case "overquota":
                 QL_add.overquota();
+                break;
 	        }
 	    });
 	    QL_add.addBtn();
