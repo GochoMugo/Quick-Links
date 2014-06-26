@@ -6,6 +6,18 @@ body {
 	padding: 5px;
 }
 
+/*Styling the background image*/
+.bg-logo {
+    height: 250px;
+    width: 250px;
+    position: fixed;
+    opacity: 0.25;
+    bottom: 0;
+    right: 0;
+}
+    .bg-logo img {
+        height: 300px;
+    }
 /*Styling the tab links*/
 .nav-tabs li  a {
 	border: 0 !important;

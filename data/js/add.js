@@ -1,265 +1,288 @@
 /*HANDLES SETTINGS ON THE PANEL*/
 var QL_add = {
-	JSON: [], // Holds the Links
-	OverQuota: false, // Memory exhausted
-	collection: document.getElementsByClassName('fa-times'), // All the close icons
-	remove: function () { // Removing rows in the User table
-		QL_add.collection = document.getElementsByClassName('fa-times'); // All the close icons
+    links: [],
+	collection: undefined, 
+	generateHTML: function (table_id, id, icon_class, active, display_name, 
+	                                            keyword, type) {
+	    /*
+	    * Prototype of the DOM structure to be achieved
+	    * <tr>
+	    *   <td>
+        *       <input type='checkbox' id='$id_of_link'/>
+	    *       <label for='$id_of_link'></label>   
+	    *   </td>
+		*	<td><i class='fa $icon'></i>$keyword</td>
+		*	<td>$translated_display_name</td>
+		*   <td><i class='fa fa-times'></i></td>
+		* </tr>
+	    */
+	    var create = function (el) document.createElement(el); // Short-form
+	    /*Creating new elements*/
+	    var row = create("tr"),
+	           cell1 = create("td"),
+	                checkbox = create("input"),
+	                label = create("label"),
+	           cell2 = create("td"),
+    	           icon = create("i"),
+	           cell3 = create("td");
+       /*Customizing the new elements*/
+       checkbox.className = 'chkbx';
+       checkbox.setAttribute("type", "checkbox");
+       checkbox.id = id;
+       checkbox.checked = active;
+       label.setAttribute("for", id);
+       icon.className = "fa " + icon_class;
+       /*Organising the structure*/
+       $(cell1).append(checkbox, label);
+       $(cell2).append(icon);
+       if (keyword) $(cell2).append(keyword); // Inserts a keyword
+       $(cell3).append(display_name);
+       $(row).append(cell1, cell2, cell3);
+       /*If the link is NOT preset, it's a custom one'*/
+       if (type == "custom") {
+            var cell4 = create("td"), closeIcon = create("i") ;
+            closeIcon.className = "fa fa-times";
+            $(cell4).append(closeIcon);
+            $(row).append(cell4); 
+       }
+       /*Inserting into DOM*/
+       $("#" + table_id).append(row);
+	},
+	postback: function () {
+	    /*
+	    * Checks whether the links have been updated
+	    * Handles getting the check state of all the checkboxes and adding to the 
+	    * property of each link. Then sends back the links
+	    */
+	    QL_add.links.forEach(function (link) {
+	        link.active = document.getElementById(link.id).checked;
+	    });
+	    self.postMessage({"aim": "links", "content": QL_add.links});
+	},
+	receivelinks: function (links) {
+	    /*
+	    * This will receive the links and place them in the links property pf QL_add
+	    * It will also initiate the HTML manipulation
+	    */
+	    QL_add.links =  links;
+	    links.forEach(function (link) {
+	        if (link.keyword) {
+	            QL_add.generateHTML("add-table" , link.id, link.icon, link.active, 
+	                                                link.display_name, link.keyword, "custom");
+	        } else {
+	            QL_add.generateHTML( "major-sites", link.id, link.icon, link.active, 
+                                                    link.display_name);
+	        }
+	    });
+	    QL_add.removeLink();
+	},
+	alert: function (type, event) {
+        /* 
+        * Translation is required. Thus a new message object is created and posted
+        * and receive translated messages from locale files
+        * Message is sent after the handler has been registered
+		*/
+		var msg = {
+			aim: 'translate',
+			content: event
+		};
+		
+        // Receiving message from translation
+		self.on('message', function (message) {
+			if (message.aim === 'translated') {
+			    var create = function (el) document.createElement(el), 
+			           alertBox = create("div"),
+			           close_btn = create("button");
+	            // Styling the new elements
+	            alertBox.className = "alert alert-" + type + " alert-dismissable";
+	            close_btn.className = "close";
+	            close_btn.setAttribute("data-dismiss", "alert");
+			    close_btn.setAttribute("aria-hidden", "true");
+			    // Organising the elements
+			    $(close_btn).append("&times;");
+			    $(alertBox).append(close_btn);
+			    $(alertBox).append(message.content);
+			    // Inserting into DOM
+			    $("#add-alert").empty().append(alertBox);
+			}
+		});
+		
+		// Handling different errors
+		switch (event) {
+		case "alert_BlankTitle":
+		case "alert_ExistingTitle":
+		    document.getElementById('add-title')
+		        .parentNode.className += ' has-warning';
+			document.getElementById('add-title').focus();
+		    break;
+	    case "alert_BlankUrl":
+	         document.getElementById('add-url')
+	            .parentNode.className += ' has-warning';
+			document.getElementById('add-url').focus();
+	        break;
+        case "alert_BlankIdentifier":
+        case "alert_MaxIdLength":
+             document.getElementById('add-id')
+                .parentNode.className += ' has-warning';
+			document.getElementById('add-id').focus();
+            break;
+		}
+		self.postMessage(msg);
+		return;  
+	},
+	reset: function (priority) {
+	    /*
+	    * Clears the Alert box, and states on input boxes
+	    */
+	    var input_boxes = [
+	        document.getElementById('add-title'),
+	        document.getElementById('add-url'),
+	        document.getElementById('add-id')
+	    ];
+	    input_boxes.forEach(function (box) {
+	        box.parentNode.className = 'input-group';
+	        if (priority === "hard") {box.value = '';}
+	    });
+	    if (priority === "hard") {
+	        $("#add-alert").empty();
+	    }
+	},
+	newLink: function (id, icon, name, url, active, keyword) {
+	    /*
+	    * Creates a new link: creates the object and invokes html generation and 
+	    * insertion into dom. Ensures that the title is unique.
+	    */
+	    var proceed = true;
+	    QL_add.links.forEach(function (link) {
+	        if (link.id === id) {
+	            QL_add.alert('danger', 'alert_ExistingTitle');
+	            proceed = false;
+	            return;
+	        }
+	    });
+	    if(!proceed) return;
+	    var link = {
+		    "id": id,
+		    "icon" : icon,
+		    "display_name" : name,
+		    "url" : url,
+		    "active": active,
+		    "keyword": keyword
+	    };
+	    QL_add.links.push(link);
+	     QL_add.generateHTML("add-table" , link.id, link.icon, link.active, 
+	                                                link.display_name, link.keyword, "custom");
+	    QL_add.removeLink();
+	},
+	removeLink: function () {
+	    /*
+	    * Removes links from the table and in the links array
+	    * Gets All the close icons and applys the functionality to them
+	    */
+		QL_add.collection = document.getElementsByClassName('fa-times');
         // Looping thru' the Icons
 		for (var i = 0; i < QL_add.collection.length; i++) {
             // Adding the Click functionality
 			QL_add.collection[i].onclick = function () {
 				var currentRow = this.parentNode.parentNode; // the Row
 				var table = currentRow.parentNode.parentNode; // the Table
-				var title = currentRow.childNodes[2].innerHTML; // the Name e.g. Codecademy
-				QL_add.generate('remove', '', title); // Updating the JSON object
+				var title = currentRow.childNodes[2].innerHTML; // the Title
 				$(currentRow).remove(); // Using jQuery to remove the Row
-				QL_add.remove(); // Re-putting the Click functionality			
+				
+				var newArray = [];
+				QL_add.links.forEach(function (link) {
+		            if (link.id !== title) {
+		                newArray.push(link);
+		            }
+		        });
+				
+				QL_add.links = newArray;
+				//QL_add.removeLink(); // Re-putting the Click functionality			
 			}
 		}
-//		if (QL_add.OverQuota === true) QL_add.posting(); RE-THINK
-		return;
-	},
-	add: function (table_id, title, icon, url, id, active, asMessage, index) {
-        // Adding Links details to the Presets Table and Rows in the User Table
-        // table_id     --> id of either the Presets or User table
-        // title        --> title/name of the site e.g. Codecademy
-        // icon         --> class of the icon
-        // url          --> URL address of the site
-        // id           --> Letters shown next to the Icon
-        // active       --> Boolean.True that's shown or to be shown on addon bar
-        // asMessage    --> True. Wanting to know if the Link exists in the JSON object
-        // index        -->
-		var proceed = QL_add.generate('add', table_id, title, icon, url, id, active, asMessage); 
-		if (proceed === false) {return; }
-		$('#add-alert').text(""); // Blanking out the Alert box i.e. Success of the Adding
-
-        /*HTML Insertion using jQuery*/
-		if (table_id === 'major-sites') { // Presets table
-		    var new_td_1 = document.createElement('td'),                // The td to insert at the start of the row
-		           newCheckbox = document.createElement('input'),// The checkbox
-		           newLabel = document.createElement('label');          // Label for animation
-		     
-		     // Styling the Checkbox      
-            newCheckbox.className = 'chkbx';
-            newCheckbox.setAttribute('type', 'checkbox');
-            newCheckbox.checked = active;
-            newCheckbox.id = title + '-chkbx';
-            // Styling the Label
-            newLabel.setAttribute('for', title + '-chkbx');    
 		
-		    // Appending the content of the td
-		   $(new_td_1).append(newCheckbox, newLabel);
-		    
-		    // Adding the td to the table
-			$(document.getElementById(title + '-group')).prepend(new_td_1);
-		} else { // User Table
-            // Creates a new row to be inserted
-            var newRow = document.createElement('tr'),                      // Row
-                    newCheckbox = document.createElement('input'),   // Checkbox
-                    newLabel = document.createElement('label'),             // Label
-                    newIcon = document.createElement('i'),                        // Icon
-                    newId = document.createElement('span'),                     // Span for Text/id
-                    newCloseIcon = document.createElement('i'),              // Remove button
-                    new_td_1 = document.createElement('td'),                    // 1st td
-                    new_td_2 = document.createElement('td'),                    // 2nd td
-                    new_td_3 = document.createElement('td'),                    // 3rd td
-                    new_td_4 = document.createElement('td');                    // 4th td
-
-            // Customizing Checkbox
-            newCheckbox.setAttribute('type', 'checkbox');
-            newCheckbox.checked = true;
-            newCheckbox.className = "chkbx";
-            newCheckbox.id = title + "-chkbx";
-            // Customizing the Label
-            newLabel.setAttribute('for', title + '-chkbx');
-            // Customizing the Icon
-            newIcon.className = 'fa ' + icon;
-            // Customizing the Text to appear next to icon
-            newId.className = 'cloud-id';
-            $(newId).text(id); // Adding to the Span
-            // Customizing the Remove button
-            newCloseIcon.className = 'fa fa-times';
-            
-            // Adding Content accordingly
-            $(new_td_1).append(newCheckbox, newLabel),
-            $(new_td_2).append(newIcon, newId),
-            $(new_td_3).append(title),
-            $(new_td_4).append(newCloseIcon)
-            
-            // Appening to the new Row
-            $(newRow).append(
-                $(new_td_1),
-                $(new_td_2),
-                $(new_td_3),
-                $(new_td_4)
-            );
-            
-            // Appending to the Table
-			$('#' + table_id).append(newRow);
-		}
-		QL_add.remove(); // Re-initialize the Click functionality of Close buttons
 		return;
 	},
-	btn: function () { // Handles the Button fucntionality of the User form
-        // Once the button for adding custom link is added
-		document.getElementById('add-btn').onclick = function () {
-			var title = document.getElementById('add-title').value, // Name of the site
-				url = document.getElementById('add-url').value, // URL address
-				id = document.getElementById('add-id').value, // Letters next to icon
-				radios = document.getElementsByClassName('radios'); // All the radios
+	addBtn: function () {
+	    /*
+	    * Resetting the Input boxes and alert boxes
+	    * Adds functionality of adding new links
+	    * Will make sure the form is completed and the HTML generated
+	    * 1. Loops to get the icon selected. If not, alert user and stop.
+	    * 
+	    */
+	    
+	    document.getElementById('add-btn').onclick = function () {
+	        QL_add.reset();
+			
+			var title = document.getElementById('add-title').value,
+				   url = document.getElementById('add-url').value,
+				   id = document.getElementById('add-id').value, // Identifier
+				   radios = document.getElementsByClassName('radios'), 
+				   icon = undefined;
 
-			var iconClass = undefined; //  Icon class name
-            // Looping to get the Radio that has been checked/chosen
-			for (var i = 0; i < radios.length; i++) {
-				if (radios[i].checked ){
-					iconClass = radios[i].id;
-				}
-			}
-			if (iconClass == undefined) { // No radio has been checked
-				QL_add.alert('warning', 'alert_NoIconChecked'); // Alerting user
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {icon = radios[i].id;}
+            }
+                 
+			if (!icon) { 
+			    // No icon has been chosen
+			    QL_add.alert('warning', 'alert_NoIconChecked');
 				return;
 			}
-			if (title === '') { //  Title has not been inputed
-				QL_add.alert('warning', 'alert_BlankTitle'); // Alerting user
-				document.getElementById('add-title').parentNode.className += ' has-warning'; // Making the input box highlighted with error
-				document.getElementById('add-title').focus(); //  Focussing input box
-				return;
-			} 
-			document.getElementById('add-title').parentNode.className = 'input-group has-success'; // Successful title added
-			if (url === '') { // No URL address added
-				QL_add.alert('warning', 'alert_BlankUrl'); // Alerting user
-				document.getElementById('add-url').parentNode.className += ' has-warning'; // Highlighting input box
-				document.getElementById('add-url').focus(); // Focussing input box
-				return;
-			}
-			document.getElementById('add-url').parentNode.className = 'input-group has-success'; // Successful URL address added
-			if (id === '') { // No letters have been added
-				QL_add.alert('warning', 'alert_BlankIdentifier'); // Alerting user
-				document.getElementById('add-id').parentNode.className += ' has-warning'; // Highlighting input box
-				document.getElementById('add-id').focus();// Focussing input box
-				return;
-			} else if (id.length > 2) { // The Id should not be longer than 2
-				QL_add.alert('danger', 'alert_MaxIdLength'); // Alerting user
-				document.getElementById('add-id').parentNode.className += ' has-warning'; // Highlighting input box
-				document.getElementById('add-id').focus(); // Focussing input box
-				return;
-			}
-			document.getElementById('add-id').parentNode.className = 'input-group has-success'; // Successful Id added
-			QL_add.add('add-table', title, iconClass, url, id, true, false); // adding row
-			/*Reseting Class Names on SUCCESS*/
-			document.getElementById('add-title').parentNode.className = 'input-group';
-			document.getElementById('add-url').parentNode.className = 'input-group';
-			document.getElementById('add-id').parentNode.className = 'input-group';
+			
+			if (title === '') {QL_add.alert('warning', 'alert_BlankTitle'); return;}
+			if (url === '') {QL_add.alert('warning', 'alert_BlankUrl'); return;}
+			if (id === '') {QL_add.alert('warning', 'alert_BlankIdentifier'); return;}
+			if (id.length > 2) {QL_add.alert('danger', 'alert_MaxIdLength'); return;}
+			QL_add.newLink(title, icon, title, url, true, id);
+			
+			QL_add.reset("hard");
 			return;
 		}
 	},
-	generate: function (action, type, name, icon, url, icon_id, active, asMessage) {
-        // Updating the JSON object
-        // Params described above
-		if (action === 'add') { // Adding a new Link
-            // Looping to ensure that the Link doesn't exist already
-			for (var i = 0; i <QL_add.JSON.length; i++) {
-				if (QL_add.JSON[i].name === name) {
-					if (asMessage === true) {return false; }
-					QL_add.alert('danger', 'alert_ExistingTitle'); // Alerting user that the Link already exists
-					return false;
-				}
-			}
-            // Creating a new Link object
-			var newType = 'default';
-			if (type === 'add-table') {newType = 'user'; } // Getting the type
-			var newJSONItem = {
-				"type" : newType,
-				"name" : name,
-				"icon" : icon,
-				"url" : url,
-				"icon_id": icon_id,
-				"active" : active
-			};
-			QL_add.JSON.push(newJSONItem); // Pushing to the JSON
-		} else if (action === 'remove') { // Removing from the JSON object
-			var newJSON = [];
-            // Looping thru' the Link objects
-			for (var j = 0; j < QL_add.JSON.length; j++) {
-                // Adding the Link if its not the targeted link
-				if (QL_add.JSON[j].name !== name) {
-					newJSON.push(QL_add.JSON[j]);
-				}
-			}
-			QL_add.JSON = newJSON;
-		}
-		return;
+	bookmark: function (title, url) {
+	    /*
+	    * Activates the second tab
+	    * Fills the Title and URL textboxes with the params passed
+	    */
+	    $('#ctrl-tabs #tab_2').tab('show');
+	    document.getElementById('add-title').value = title;
+		document.getElementById('add-url').value = url;
 	},
-	alert: function (type, message) { // Alerts User
-        // Translation is required. Thus a new message object is created and posted
-		var msg = {
-			main: 'translate',
-			text: message
-		};
-		self.postMessage(msg); // posting the message for translation
-        // Receiving message from translation
-		self.on('message', function (message) {
-			if (message.main === 'translate') {
-			    var myAlert = document.createElement("div"),
-			            myAlert_closebtn = document.createElement("button");
-	            // Styling the alert
-			    myAlert.className = "alert alert-" + type + " alert-dismissable";
-			    // Styling the Close button
-			    myAlert_closebtn.className = "close";
-			    myAlert_closebtn.setAttribute("data-dismiss", "alert");
-			    myAlert_closebtn.setAttribute("aria-hidden", "true");
-			    $(myAlert_closebtn).append("&times;");
-			    $(myAlert).append(myAlert_closebtn); // Appending the close button
-			    $(myAlert).append(message.text);    // Appending the translated msg
-			    // Showing to User: appending it
-			    $("#add-alert").text("").append(myAlert);
-			}
-		});
-		return;
-	},
-	checking: function (array) { // Getting the checkbox state for Presets
-		var newArray = array, checkbox;
-		for (var z = 0; z < newArray.length; z++) {
-			checkbox = document.getElementById(newArray[z].name + '-chkbx');
-			if (checkbox === null) {
-				newArray[z].active = false;
-			} else {
-				newArray[z].active = checkbox.checked;
-			}
-		}
-		return newArray;
-	},
-	init: function () { // Initializing
-        // Receiving messages
-		self.on('message', function (message) {
-			if (message === 'close') { // 'closing" the panel
-				QL_add.posting();
-			} else if (typeof message === 'object') {
-                // Looping through the Links received
-				for (var i = 0; i < message.length; i++) {
-					if (message[i].type === 'user') { // Custom
-						QL_add.add('add-table', message[i].name, message[i].icon, message[i].url, message[i].icon_id, message[i].active, true);
-					} else { // Preset
-						QL_add.add('major-sites', message[i].name, message[i].icon, message[i].url, message[i].icon_id, message[i].active, true, i);
-					}
-				}
-                // Handling the Click functionalities
-				QL_add.btn();
-				QL_add.remove();
-			} else if (message === 'OverQuota') { // OverQuota reached
-				QL_add.OverQuota = true;
-				QL_add.alert('danger', 'alert_OverQuota'); // Alerting user of OverQuota
-			}
-		});
-        // Adding the Click functionality for the Close button for the Panel
-		document.getElementById('close-button').onclick = function () {
-			self.postMessage('close');
-			QL_add.OverQuota = false;
+	closeBtn: function () {
+	    /*Adds the Add functionality to the 'add' button*/
+	    document.getElementById('close-button').onclick = function () {
+			self.postMessage({"aim": "close"});
 		};
 	},
-	posting: function () { // Posting the JSON with the links
-		self.postMessage(QL_add.checking(QL_add.JSON));
+	init: function () {
+	    /*
+	    * INITIALIZER
+	    * Message handling:
+	    * Message must have ''aim'' and "content'' properties 
+	    *   "close": send back the links to know which has been set to active
+	    *   objects: receive links placed in an array
+	    * Also adds functionality of the add and close buttons
+	    */
+	    self.on('message', function (message) {
+	        switch (message.aim) {
+	        case "close":
+	            QL_add.postback();
+                break;
+            case "links":
+                QL_add.receivelinks(message.content);
+                break;
+            case "bookmark":
+                QL_add.bookmark(message.content.title, message.content.url);
+                break;
+            case "overquota":
+                QL_add.overquota();
+                break;
+	        }
+	    });
+	    QL_add.addBtn();
+	    QL_add.closeBtn();
 	}
 };
 

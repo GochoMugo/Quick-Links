@@ -1,18 +1,37 @@
+[0.1.0]
+====================
+
+1.  +   Overhaul of data structure with an object-oriented feel [Improv]
+            *   Links can be easily added to the addon by:
+                * add a link entry into "presets.js" 
+                * use the id (from the newly-created entry above) in locale files to 
+                    provide a translation
+2.  +   Added a background image on the panel [Improv]
+3.  +   Added a hotkey for quickly creating a quick link [Improv]
+4.  =   Graceful migration from v0.0.2 to v0.1.0 [Bug]
+5.  +   More preset icons: (3 new) [Improv]
+            + Foursquare
+            + JSFiddle
+            + Trello
+
+
 [0.0.2]
 ====================
 
 1.  +   More light-weight 
 	        * Unrequired Jquery Files have been deleted
-	        * Non-minified css and js in both Bootstrap and Font Awesome Library have been removed
+	        * Non-minified css and js in both Bootstrap and Font Awesome Library 
+	            have been removed
 2.  +   Semantic Versioning Enforcement [Improv]
 	        * First-run shows the correct addon version
-3.  +   Compatibility specification in First-run.html corrected for accuracy [Improv]
+3.  +   Compatibility specification in First-run.html corrected for accuracy 
+                [Improv]
 4.  +   Version updated in package.json [Improv]
 5.  =   Links in first-run.html removed [Bug]
 	        * The images were wrapped in Links with href attr pointing to the images dir
 	        * However the Link was "dead". Image didn't show up
-6.  +   Font-Awesome upgraded to 4.1.0
-7.  +   More default icons:  (15 new)
+6.  +   Font-Awesome upgraded to 4.1.0 [Improv]
+7.  +   More preset icons:  (15 new) [Improv]
             + Apple
             + Codepen
             + Drupal
