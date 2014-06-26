@@ -8,7 +8,7 @@
                     provide a translation
 2.  +   Added a background image on the panel [Improv]
 3.  +   Added a hotkey for quickly creating a quick link [Improv]
-4.  =   Graceful migration from v0.0.2 to v0.1.0 [Bug]
+4.  =   Successful migration from v0.0.2 to v0.1.0 [Bug]
 5.  +   More preset icons: (3 new) [Improv]
             + Foursquare
             + JSFiddle
