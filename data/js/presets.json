@@ -1,22 +1,4 @@
-// Object holding the Presets
-var QL_presets = {
-	aim: 'presets', // Purpose of the object
-	content: '',
-	count: 0
-};
-
-/*
-PROPERTIES OF INDIVIDUAL LINK OBJECT
-====================================
-- type      --> Shows if its a Preset () or Custom ("user")
-- icon      --> Class display_name of the associated icon as in "Font Awesome"
-- display_name      --> display_name of the Web Site e.g. Facebook
-- url       --> URL address of the Site (HTTPS recommended)
-- icon_id   --> Useful for Custom links.
-- active    --> Boolean. If true, it's shown on add-on bar
-*/
-
-QL_presets.content = [
+[
 	{
 		"id":"Apple",
 		"icon" : "fa-apple",
@@ -227,33 +209,4 @@ QL_presets.content = [
 		"url" : "https://youtube.com/",
 		"active": false
 	}
-];
-
-// If messaged 'appropriately', the Presets are messaged back
-self.on('message', function (message) {
-    /*
-    * Handling messages received to this script
-    *   "presets" - send back the presets. Invokes the translation.
-    *   "translated" - a translated preset has been sent back. Looks for the 
-    *       target link and updates it. If no more translations are expected, send 
-    *       the links 
-    */
-	switch (message.aim) {
-	case 'presets':
-        QL_presets.content.forEach(function (link) {
-            QL_presets.count++;
-            self.postMessage({"aim": "translate", "content": link.id});
-        });
-        break;
-    case "translated":
-        QL_presets.content.forEach(function (link) {
-            if (link.id === message.content[0]) {
-                link.display_name = message.content[1];
-                QL_presets.count--;
-            }
-        });
-        if (QL_presets.count === 0) {self.postMessage(QL_presets);}
-        break;
-    } 
-});
-
+]
