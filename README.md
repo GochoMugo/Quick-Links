@@ -17,7 +17,7 @@ More details can be found in the addon [site][addon-site]
 |*Current Version*| 0.1.0|
 |*Firefox Compatibility*| 21.0a - 32.0|
 |*Platforms*| Linux/Windows/MacOSx|
-|*Review Status*|Fully reviewed|
+|*Review Status*|Awaiting review|
 
 ### Downloads ###
 
