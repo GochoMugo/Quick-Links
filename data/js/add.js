@@ -54,7 +54,6 @@ var QL_add = {
 	    * Handles getting the check state of all the checkboxes and adding to the 
 	    * property of each link. Then sends back the links
 	    */
-	    console.log("UPDATE FROM PANEL>>>>>>>>>>>>>>>>>>.");
 	    QL_add.links.forEach(function (link) {
 	        link.active = document.getElementById(link.id).checked;
 	    });
@@ -91,7 +90,6 @@ var QL_add = {
         // Receiving message from translation
 		self.on('message', function (message) {
 			if (message.aim === 'translated') {
-			    console.log("PANEL GOT TRANSLATION >>> " + message.content);
 			    var create = function (el) document.createElement(el), 
 			           alertBox = create("div"),
 			           close_btn = create("button");
@@ -171,7 +169,6 @@ var QL_add = {
 		    "active": active,
 		    "keyword": keyword
 	    };
-	    console.log(link);
 	    QL_add.links.push(link);
 	     QL_add.generateHTML("add-table" , link.id, link.icon, link.active, 
 	                                                link.display_name, link.keyword, "custom");

@@ -8,7 +8,6 @@ var QL_obj = {
         var create = function (el) document.createElement(el),
                 span = create("span"),
                 icon = create("i");
-        console.log("ACTIVE ICON >>>>>> " + icon_class + " " + id);
         // Styling the Icon
         icon.className = "fa " + icon_class + " icon";
         icon.id = url;
