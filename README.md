@@ -1,6 +1,6 @@
 # QUICK LINKS ![logo][logo] #
 
-README Last Updated: Thursday, June 26, 2014
+README Last Updated: Friday, June 27, 2014
 
 ### Description ###
 > Tired or typing and re-typing URLs in your Address bar. Here comes Quick Links
@@ -17,7 +17,7 @@ More details can be found in the addon [site][addon-site]
 |*Current Version*| 0.1.0|
 |*Firefox Compatibility*| 21.0a - 32.0|
 |*Platforms*| Linux/Windows/MacOSx|
-|*Review Status*|Awaiting review|
+|*Review Status*|Fully review|
 
 ### Downloads ###
 
