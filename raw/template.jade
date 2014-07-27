@@ -1,0 +1,94 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        <!--Enabling proper rendering and touch zooming-->
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        <!--Title on Browser-->
+        title='Quick Links | v' + version
+        <!--Bootstrap-->
+        link(rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all")
+        <!--Font Awesome-->
+        link(rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="all")
+        <!--Custom stylesheet-->
+        link(rel="stylesheet" href="css/main.css" media="all")
+        <!--Favicon-->
+        link(rel="icon" href="images/icon.png" type="image/x-icon")
+        link(rel="shortcut icon" href="images/icon.png" type="image/x-icon")
+        block stylesheets
+
+    body
+        <!--Main navigation bar-->
+        nav.navbar.navbar-inverse.main-menu
+            div.navbar-header
+                a.navbar-brand(href="https://github.com/GochoMugo" title="Proceed to my GitHub page").
+                    GOCHO
+                a.btn.btn-primary.pull-right(href="https://addons.mozilla.org/en-US/firefox/addon/quick-links/" title="Download from Mozilla.org")
+                    i.fa.fa-download. 
+                    | Download
+        <!--Page header-->
+        header#header
+            img.brand-logo(src="images/logo.png")
+            a(href="index.html")
+                h1
+                    | Quick Links 
+                    small=version
+                a(href="//affiliates.mozilla.org/link/banner/55900")
+                    img(src="//affiliates.mozilla.org/media/uploads/banners/c3d1065eacadd1f97d1d54cb962a4f7ac1e9e874.png" alt="Download: Fast, Fun, Awesome")
+            <!--Short Submenu-->
+            div.header-menu
+                div
+                    a(href="bugs_issues.html")
+                        i.fa.fa-bug.
+                            Bugs and Issues
+                    | &middot;
+                    a(href="license.html")
+                        i.fa.fa-trophy.
+                            License
+                    | &middot;
+                    a(href="documentation.html")
+                        i.fa.fa-book.
+                            Documentation
+            <!--Details band-->
+            div.header-details
+                p
+                    span
+                        | Addon for 
+                        img(src="images/firefox_logo.png")
+                        a(href="https://www.mozilla.org/").
+                            Firefox
+                    |: Lets you add links to your favorite sites to your add-on bar from where you can quickly access the sites
+
+        <!--Page Content-->
+        div#content.col-md-6.col-md-offset-3
+            block content
+
+        <!--Page footer-->
+        footer#footer
+            div.container
+                div
+                    span='Currently version ' + version
+                    | &middot;
+                    span
+                        | Created by 
+                        a(href="https://github.com/GochoMugo"). Gocho Mugo
+                div
+                    span
+                        a(href="bugs_issues.html")
+                            i.fa.fa-bug.
+                                Bugs and Issues
+                        | &middot;
+                    span
+                        a(href="license.html")
+                            i.fa.fa-trophy.
+                                License
+                        | &middot;
+                    span
+                        a(href="documentation.html")
+                            i.fa.fa-book.
+                                Documentation
+        <!--jQuery-->
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+        <!--Bootstrap-->
+        script(src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
+        block scripts

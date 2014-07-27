@@ -1,0 +1,103 @@
+extends ./template.jade
+
+block content
+
+    <!--Specifications-->
+    div.row.specifications
+        div.col-md-3.col-md-offset-1
+            h2.
+                Specification
+        div.col-md-6
+            div.table-responsive
+                table.table.table-bordered.table-striped.table-hover
+                    tbody
+                        tr
+                            th.
+                                Version
+                            td=version
+                        tr
+                            th.
+                                Compatability
+                            td.
+                                Firefox 21.0a - 32.0
+                        tr
+                            th.
+                                Languages
+                            td.
+                                English (United States), Swahili, French
+            div.alert.alert-info
+                strong.
+                    Hey you!
+                | Could you help me translate Quick Links to your language? Head over to the 
+                a.alert-link(href="translations.html").
+                    Translations 
+                | page. Thanks
+
+    <!--icons-->
+    div.row
+        div.col-md-4.col-md-offset-2
+            h3.
+                Icons
+            p.
+                Lets you add icons to your addon bar. The icons serve as links on which you can link to open a new tab with the URL address loading.
+            p.visible-xs
+                a(href="images/screenshot1.png" role="button"). 
+                    Preview
+        div.col-md-4
+            a(href="images/screenshot1.png" role="img")
+                img(src="images/screenshot1.png" alt="Icons in the addon bar")
+
+    <!--presets-->
+    div.row.presets
+        div.col-md-4.col-md-offset-2
+            a(href="images/screenshot2.png" role="img")
+                img.big-image(src="images/screenshot2.png" alt="Presets")
+        div.col-md-4.presets-details
+            h3.
+                Presets
+            p
+                | The addon offers some presets of links that can be added to the addon bar. Some presets are:
+                ul
+                    li
+                        i.fa.fa-facebook
+                        | Facebook
+                    li
+                        i.fa.fa-linkedin
+                        | LinkedIn
+                    li
+                        i.fa.fa-twitter
+                        | Twitter
+            p.visible-xs
+                a(href="images/screenshot2.png" role="button").
+                    Preview
+
+    <!--Custom links-->
+    div.row
+        div.col-md-4.col-md-offset-2
+            h3.
+                Custom links
+            p.
+                With this addon, you can add a link of your choice to the addonbar.
+            p.visible-xs
+                a(href="images/screenshot3.png" role="button").
+                    Preview
+        div.col-md-4
+            a(href="images/screenshot3.png" role="img")
+                img.big-image(src="images/screenshot3.png" alt="custom links")
+
+    <!--Contribution-->
+    div.row.contribution
+        div.col-md-6.col-md-offset-3.container
+            h6
+                i.fa.fa-smile-o
+                | Humble contribution
+            p.
+                Support the continued development of Quick Links.
+                Help us help you enjoy browsing with Firefox.
+            form(action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top")
+                input(type="hidden" name="cmd" value="_s-xclick")
+                input(type="hidden" name="hosted_button_id" value="K3KN96TTUX42J")
+                button.btn.btn-primary.btn-sm.pull-right(type="submit" name="submit")
+                    i.fa.fa-heart
+                    | Contribute
+                img(alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1")
