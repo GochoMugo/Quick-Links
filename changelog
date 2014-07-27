@@ -1,3 +1,11 @@
+[0.2.0]
+=====================
+1.  +   Clicking icons in the add panel opens a new tab with its associated url
+         loaded. [Improv]
+2.  +   French translation added. <By Magali de Morangies> [Improv]
+3.  =   Notification shown only major and minor version bumps occur.
+          Ignores patch version bumps.
+
 [0.1.0]
 ====================
 
@@ -19,19 +27,18 @@
 ====================
 
 1.  +   More light-weight 
-	        * Unrequired Jquery Files have been deleted
-	        * Non-minified css and js in both Bootstrap and Font Awesome Library 
-	            have been removed
+            * Unrequired Jquery Files have been deleted
+            * Non-minified css and js in both Bootstrap and Font Awesome Library 
+                have been removed
 2.  +   Semantic Versioning Enforcement [Improv]
-	        * First-run shows the correct addon version
+            * First-run shows the correct addon version
 3.  +   Compatibility specification in First-run.html corrected for accuracy 
                 [Improv]
-4.  +   Version updated in package.json [Improv]
-5.  =   Links in first-run.html removed [Bug]
-	        * The images were wrapped in Links with href attr pointing to the images dir
-	        * However the Link was "dead". Image didn't show up
-6.  +   Font-Awesome upgraded to 4.1.0 [Improv]
-7.  +   More preset icons:  (15 new) [Improv]
+4.  =   Links in first-run.html removed [Bug]
+            * The images were wrapped in Links with href attr pointing to the images dir
+            * However the Link was "dead". Image didn't show up
+5.  +   Font-Awesome upgraded to 4.1.0 [Improv]
+6.  +   More preset icons:  (15 new) [Improv]
             + Apple
             + Codepen
             + Drupal
@@ -47,7 +54,7 @@
             + Windows
             + Wordpress
             + Yahoo
-8.  +   More custom icons: (2 new)
+7.  +   More custom icons: (2 new)
             + comments
             + cutlery
             + flag
@@ -71,6 +78,3 @@
 
 5.  +   Compatibility Tested [Improv]
             * 21.0a - 32.0
-
-Validation Results: https://addons.mozilla.org/en-US/developers/upload/e14fb93a$
-
