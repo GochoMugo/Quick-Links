@@ -23,65 +23,67 @@
         <p><span>Addon for <img src="images/firefox_logo.png"><a href="https://www.mozilla.org/">Firefox</a></span>: Lets you add links to your favorite sites to your add-on bar from where you can quickly access the sites</p>
       </div>
     </header><!--Page Content-->
-    <div id="content" class="col-md-8 col-md-offset-2"><!--Page Content-->
-      <div id="content" class="content-center">
-        <div class="row"><!--Link to Report a Bug--><a id="correspondence-link" href="#correspondence" class="btn btn-primary btn-block btn-sm">
-            <div class="row">
-              <div class="col-md-6 col-md-offset-3">
-                Report a Bug |
-                Suggest a Change | 
-                A Simple Thanks
+    <div class="col-md-8 col-md-offset-2">
+      <div id="content"><!--Page Content-->
+        <div id="content" class="content-center">
+          <div class="row"><!--Link to Report a Bug--><a id="correspondence-link" href="#correspondence" class="btn btn-primary btn-block btn-sm">
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                  Report a Bug |
+                  Suggest a Change | 
+                  A Simple Thanks
+                </div>
+              </div></a><!--Issues-->
+            <div class="issues">
+              <h3>Issues <small>updates and reports</small></h3>
+              <div class="single-issue">
+                <h4>Assess addon with Validation Results <small>31<sup>st</sup>
+                    <March>2014</March></small></h4>
+                <p>You can access the validation results of the addon<a href="https://addons.mozilla.org/en-US/developers/upload/800d0d924dfb4388826025d42d2127aa">here</a>and help Me make it better.</p>
               </div>
-            </div></a><!--Issues-->
-          <div class="issues">
-            <h3>Issues <small>updates and reports</small></h3>
-            <div class="single-issue">
-              <h4>Assess addon with Validation Results <small>31<sup>st</sup>
-                  <March>2014</March></small></h4>
-              <p>You can access the validation results of the addon<a href="https://addons.mozilla.org/en-US/developers/upload/800d0d924dfb4388826025d42d2127aa">here</a>and help Me make it better.</p>
-            </div>
-            <div class="single-issue">
-              <h4>Published on Mozilla Site <small>31<sup>st</sup> March 2014</small></h4></h4>
-              <p>You can download the addon from Mozilla.org.&nbsp;<a href="https://addons.mozilla.org/en-US/firefox/addon/quick-links/">Download</a>and be in ease.</p>
-            </div>
-          </div><!--Bugs-->
-          <div class="bugs">
-            <h3>Bugs <small>errors</small></h3>
-            <div class="single-bug"><span class="status-unresolved">UNRESOLVED</span>
-              <h4>Width Inconsistency <small>1<sup>st</sup></small>April 2014</h4>
-              <p>The width of the addon is inconsistent making the widget adjust unfavorably.</p>
-            </div>
-          </div><!--correspondence-->
-          <div id="correspondence" class="correspondence">
-            <div class="row">
-              <div class="col-md-6 col-md-offset-3">
-                <!--FORM-->
-                <!--Alert Box-->
-                <div id="frm_alert"></div>
-                <div class="frm">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <input id="frm_username" type="text" placeholder="Your Name" class="form-control">
+              <div class="single-issue">
+                <h4>Published on Mozilla Site <small>31<sup>st</sup> March 2014</small></h4></h4>
+                <p>You can download the addon from Mozilla.org.&nbsp;<a href="https://addons.mozilla.org/en-US/firefox/addon/quick-links/">Download</a>and be in ease.</p>
+              </div>
+            </div><!--Bugs-->
+            <div class="bugs">
+              <h3>Bugs <small>errors</small></h3>
+              <div class="single-bug"><span class="status-unresolved">UNRESOLVED</span>
+                <h4>Width Inconsistency <small>1<sup>st</sup></small>April 2014</h4>
+                <p>The width of the addon is inconsistent making the widget adjust unfavorably.</p>
+              </div>
+            </div><!--correspondence-->
+            <div id="correspondence" class="correspondence">
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                  <!--FORM-->
+                  <!--Alert Box-->
+                  <div id="frm_alert"></div>
+                  <div class="frm">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input id="frm_username" type="text" placeholder="Your Name" class="form-control">
+                      </div>
+                      <div class="col-md-6">
+                        <input id="frm_email" type="email" placeholder="Your email address" class="form-control">
+                      </div>
                     </div>
-                    <div class="col-md-6">
-                      <input id="frm_email" type="email" placeholder="Your email address" class="form-control">
+                    <div>
+                      <div id="btn-group" data-toggle="buttons" class="btn-group btn-group-justified">
+                        <label class="btn btn-default">
+                          <input id="bugs" type="radio" name="options" class="radios"><i class="fa fa-bug"></i>Bug
+                        </label>
+                        <label class="btn btn-default">
+                          <input id="changes" type="radio" name="options" class="radios"><i class="fa fa-exchange"></i>Change
+                        </label>
+                        <label class="btn btn-default">
+                          <input id="thanks" type="radio" name="options" class="radios"><i class="fa fa-thumbs-o-up"></i>Thanks
+                        </label>
+                      </div>
                     </div>
+                    <textarea id="frm_details" placeholder="Enter the details..." class="form-control"></textarea>
+                    <button id="frm_submit" class="btn btn-primary btn-block disabled">Getting Ready</button>
                   </div>
-                  <div>
-                    <div id="btn-group" data-toggle="buttons" class="btn-group btn-group-justified">
-                      <label class="btn btn-default">
-                        <input id="bugs" type="radio" name="options" class="radios"><i class="fa fa-bug"></i>Bug
-                      </label>
-                      <label class="btn btn-default">
-                        <input id="changes" type="radio" name="options" class="radios"><i class="fa fa-exchange"></i>Change
-                      </label>
-                      <label class="btn btn-default">
-                        <input id="thanks" type="radio" name="options" class="radios"><i class="fa fa-thumbs-o-up"></i>Thanks
-                      </label>
-                    </div>
-                  </div>
-                  <textarea id="frm_details" placeholder="Enter the details..." class="form-control"></textarea>
-                  <button id="frm_submit" class="btn btn-primary btn-block disabled">Getting Ready</button>
                 </div>
               </div>
             </div>

@@ -115,6 +115,7 @@ body > header {
 
 /*Page Footer*/
 body > footer {
+    clear: both;
     text-align: center;
     padding: 10px;
     background-image: $texture;
@@ -132,7 +133,7 @@ body > footer {
 
 /*Page content*/
 #content {
-    width: 99%;
+    width: 100%;
     padding: 10px;
     background: #fff;
     /*ALL headings*/
