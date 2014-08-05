@@ -1,5 +1,11 @@
 docs:
-	@jade raw/ --out . \
+	@jade jade/ --out . \
+		--pretty \
 		--obj project.json
-	@python update.py
+	@sass scss/main.scss css/main.css
 	@echo 'Docs built/updated...'
+
+clean:
+	@- rm -r *.html
+
+.PHONY: docs clean

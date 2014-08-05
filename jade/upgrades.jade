@@ -1,0 +1,40 @@
+extends ./template.jade
+
+
+block content
+    div.alert.alert-info
+        | This page is still being published. See the 
+        a.alert-link(href="https://github.com/GochoMugo/Quick-Links")
+            | GitHub repo 
+        | for more information.
+    <!--v0.2.0-->
+    div(id="0.2.0")
+        h1 v0.2.0
+        div.single-issue
+            ul
+                li Translation to 
+                    em French
+                    | added. By 
+                    em Magali de Morangies
+                li Icons in the add panel can be clicked to open new tabs with their associated URLs loaded.
+        div.single-bug
+            ul
+                li Icons do not repeat themselves when new windows are started.
+    <!--v0.1.0-->
+    div(id="0.1.0")
+        h1 v0.1.0
+        div.single-issue
+            ul
+                li 20 new icons
+                li 
+                    | Hot key: 
+                    kbd Ctrl
+                    | /
+                    kbd Cmd
+                    | + 
+                    kbd Alt
+                    | + 
+                    kbd Q
+                li
+                    | Better performance and Stability
+    div.clearfix

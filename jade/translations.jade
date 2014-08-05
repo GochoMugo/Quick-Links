@@ -1,0 +1,69 @@
+extends ./template.jade
+
+block content
+    div.row
+        <!-- AN ALERT TO A TRANSLATOR -->
+        div.alert.alert-info.alert-dismissable
+            button.close(type="button" data-dismiss="alert" aria-hidden="true")
+                | &times;
+            | Dear Developer,
+            br
+            strong
+                | Thanks
+            | for taking your time and helping translate Quick Links        
+
+        <!-- LANGUAGES  -->
+        h3
+            | Languages we know now
+        ul
+            li
+                | English (United States)
+            li
+                | Swahili
+            li
+                | French
+
+        <!-- INSTRUCTIONS -->
+        h3
+         | How To:
+        ol
+            li
+                 | Ensure Quick-Links is 
+                 b
+                    | NOT 
+                | already translated to your Language
+            li
+                a(href="template.properties" download="template.properties")
+                    | Download
+                | the template 
+                em
+                   | .properties
+                file
+            li
+                | Wherever the words 
+                kbd
+                    | TRANSLATION 
+                | appear, replace them with the appropriate translation
+            li
+                | Attach the translated 
+                em
+                    | .properties 
+                | file to an email with it subject QUICK LINKS' TRANSLATION TO 
+                em
+                    | my language. 
+                | Ensure you state the language here
+            li
+                | To get credit, include your name, email address and preferably your GitHub Username. This is optional
+            li
+                | Send off the email to gochomugo[dot]developer[at]gmail[dot]com
+            li
+                | Patiently wait to enjoy Quick Links in your 
+                strong
+                    | Beautiful Language
+
+        <!-- THANKS  -->
+        h3
+            i.fa.fa-smile-o
+            | Thanks
+        p
+            | Thanks again, for helping me do this.
