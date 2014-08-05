@@ -17,7 +17,7 @@ More details can be found in the addon [site][addon-site]
 |*Platforms*| Linux/Windows/MacOSx|
 |*Review Status*|Awaiting review|
 |*Languages*|English(US), Swahili, French|
-|*Last Updated*|July 27, 2014|
+|*Last Updated*|August 5, 2014|
 
 ### Downloads ###
 
@@ -46,7 +46,8 @@ All bugs, updates and changes are posted at the [page][bug-report-page].
 
 A list of all the contributors to this addon.
 
-1. <a href='mailto:mybeautifulrat@gmail.com' title='Mail me...'>Magali de Morangies</a>
+1. <a href='https://gochomugo.github.io'>GochoMugo</a>
+2. <a href='mailto:mybeautifulrat@gmail.com'>Magali de Morangies</a>
 
 Contribute to this project and see your name here...
 
