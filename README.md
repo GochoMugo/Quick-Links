@@ -15,9 +15,9 @@ More details can be found in the addon [site][addon-site]
 |*Current Version*| 0.2.0|
 |*Firefox Compatibility*| 21.0a - 32.0|
 |*Platforms*| Linux/Windows/MacOSx|
-|*Review Status*|Awaiting review|
+|*Review Status*|N/A|
 |*Languages*|English(US), Swahili, French|
-|*Last Updated*|August 5, 2014|
+|*Last Updated*|December 27, 2014|
 
 ### Downloads ###
 

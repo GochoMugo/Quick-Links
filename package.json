@@ -1,18 +1,18 @@
 {
   "name": "quicklinks",
   "title": "Quick Links",
+  "version": "0.2.0",
   "id": "jid1-sPBPaBflVZ80iQ",
   "description": "Lets you add links to your favorite sites to your add-on bar from where you can quickly access the sites",
   "author": "GOCHO Mugo",
   "homepage": "https://gochomugo.github.io/Quick-Links",
   "icon": "icon.png",
   "icon64": "icon64.png",
-  "translators": [],
+  "translators": ["Magali de Morangies"],
   "contributors": [],
   "keywords": [
-  	"quick links", "links", "tabs", "mozilla", "firefox"
+    "quick links", "links", "tabs", "mozilla", "firefox"
   ],
   "license": "MIT",
-  "version": "0.2.0",
   "permissions": {"private-browsing":true}
 }

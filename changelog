@@ -1,80 +1,95 @@
+Key
+----
++ Improvement
+- Backwards-incompatible Change
+= Bug Fix
+
+
+[0.3.0]
+=====================
+
+
+
+
 [0.2.0]
 =====================
-1.  +   Clicking icons in the add panel opens a new tab with its associated url
-         loaded. [Improv]
-2.  +   French translation added. <By Magali de Morangies> [Improv]
-3.  =   Notification shown only major and minor version bumps occur.
-          Ignores patch version bumps.
+1.  +  Clicking icons in the add panel opens a new tab with its associated url loaded.
+2.  +  French translation added. <By Magali de Morangies> 
+3.  =  Notification shown only major and minor version bumps occur. Ignores patch version bumps.
+
 
 [0.1.0]
 ====================
 
-1.  +   Overhaul of data structure with an object-oriented feel [Improv]
-            *   Links can be easily added to the addon by:
-                * add a link entry into "presets.js" 
-                * use the id (from the newly-created entry above) in locale files to 
-                    provide a translation
-2.  +   Added a background image on the panel [Improv]
-3.  +   Added a hotkey for quickly creating a quick link [Improv]
-4.  =   Successful migration from v0.0.2 to v0.1.0 [Bug]
-5.  +   More preset icons: (3 new) [Improv]
-            + Foursquare
-            + JSFiddle
-            + Trello
+1.  +  Overhaul of data structure with an object-oriented feel
+        *   Links can be easily added to the addon by:
+        * add a link entry into "presets.js" 
+        * use the id (from the newly-created entry above) in locale files to provide a translation
+
+2.  +  Added a background image on the panel
+3.  +  Added a hotkey for quickly creating a quick link
+4.  +  More preset icons: (3 new)
+        * Foursquare
+        * JSFiddle
+        * Trello
+
+5.  =  Successful migration from v0.0.2 to v0.1.0
 
 
 [0.0.2]
 ====================
 
-1.  +   More light-weight 
-            * Unrequired Jquery Files have been deleted
-            * Non-minified css and js in both Bootstrap and Font Awesome Library 
-                have been removed
-2.  +   Semantic Versioning Enforcement [Improv]
-            * First-run shows the correct addon version
-3.  +   Compatibility specification in First-run.html corrected for accuracy 
-                [Improv]
-4.  =   Links in first-run.html removed [Bug]
-            * The images were wrapped in Links with href attr pointing to the images dir
-            * However the Link was "dead". Image didn't show up
-5.  +   Font-Awesome upgraded to 4.1.0 [Improv]
-6.  +   More preset icons:  (15 new) [Improv]
-            + Apple
-            + Codepen
-            + Drupal
-            + Git
-            + Google
-            + Pinterest
-            + SoundCloud
-            + Stack Exchange
-            + Stack Overflow
-            + Steam
-            + Tumblr
-            + Vimeo
-            + Windows
-            + Wordpress
-            + Yahoo
-7.  +   More custom icons: (2 new)
-            + comments
-            + cutlery
-            + flag
-            + institution
-            + paper-plane
+1.  +  More light-weight
+        * Unrequired Jquery Files have been deleted
+        * Non-minified css and js in both Bootstrap and Font Awesome Library have been removed
 
+2.  +  Semantic Versioning Enforcement 
+        * First-run shows the correct addon version
+
+3.  +  Compatibility specification in First-run.html corrected for accuracy
+4.  =  Links in first-run.html removed 
+        * The images were wrapped in Links with href attr pointing to the images dir
+        * However the Link was "dead". Image didn't show up
+
+5.  +  Font-Awesome upgraded to 4.1.0
+6.  +  More preset icons:  (15 new)
+        * Apple
+        * Codepen
+        * Drupal
+        * Git
+        * Google
+        * Pinterest
+        * SoundCloud
+        * Stack Exchange
+        * Stack Overflow
+        * Steam
+        * Tumblr
+        * Vimeo
+        * Windows
+        * Wordpress
+        * Yahoo
+
+7.  +  More custom icons: (2 new)
+        * comments
+        * cutlery
+        * flag
+        * institution
+        * paper-plane
 
 
 [0.0.1]
 ====================
-1.  +   Icons added [Improv]
-            * icon.png(48 x 48) and icon64.png(64 x 64) have been added
-2.  +   Package.json updated for icons and semantic versioning [Improv]
-3.  =   Holder.js in Bootstrap is removed [Bug][Secur]
-4.  =   HTML Insertion.  [Bug][Secur]
-            *Security measure
-            *Ineffeciency
-            *All .innerHTML += operations are now handled with jQuery's .append() a$
-            *All .innerHTML -= operations are now handled with jQuery's .remove()
-            *No more usanitized html. The elements required are created using docum$
+1.  +  Icons added
+        * icon.png(48 x 48) and icon64.png(64 x 64) have been added
 
-5.  +   Compatibility Tested [Improv]
+2.  +  Package.json updated for icons and semantic versioning
+3.  =  Holder.js in Bootstrap is removed
+4.  =  HTML Insertion
+        *Security measure
+        *Ineffeciency
+        *All .innerHTML += operations are now handled with jQuery's .append() a$
+        *All .innerHTML -= operations are now handled with jQuery's .remove()
+        *No more usanitized html. The elements required are created using docum$
+
+5.  +   Compatibility Tested
             * 21.0a - 32.0
