@@ -102,7 +102,9 @@ var QL_migration = {
  * patch version bump.
  */
 function majorBump() {
-  if (! QL_var.storage.version) { return false; }
+  if (!storage.version) {
+    return false;
+  }
 
   var old_version = QL_var.storage.version.substr(0,
     QL_var.storage.version.lastIndexOf('.'));

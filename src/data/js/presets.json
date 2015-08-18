@@ -133,13 +133,13 @@
     "active": false
   },
   {
-        "id": "Trello",
+    "id": "Trello",
     "icon" : "fa-trello",
     "url" : "https://trello.com/",
     "active": false
   },
   {
-        "id": "Tumblr",
+    "id": "Tumblr",
     "icon" : "fa-tumblr",
     "url" : "https://www.tumblr.com/",
     "active": false

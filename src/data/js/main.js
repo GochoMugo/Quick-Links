@@ -17,7 +17,7 @@ var QL_obj = {
     $("#holder").prepend("&middot;", icon, span);
     return;
   },
-  init: function (array) { 
+  init: function (array) {
     "use strict";
     /*
     * INITIALIZER.
@@ -39,7 +39,7 @@ var QL_obj = {
       }
     }
 
-    var collection = document.getElementsByClassName('icon'); 
+    var collection = document.getElementsByClassName('icon');
     for (var j = 0; j < collection.length; j++) {
       collection[j].onclick = function () {
         self.postMessage({"aim": "url", "content": this.id});
@@ -57,6 +57,6 @@ var QL_obj = {
 self.on('message', function (message) {
   "use strict";
   if (message.aim === "update") {
-    QL_obj.init(message.content); // Initializing & re-initializing  
+    QL_obj.init(message.content); // Initializing & re-initializing
   }
 });

@@ -5,7 +5,7 @@
 
 export default {
   notify,
-  translate,
+  localize,
 };
 
 
@@ -27,9 +27,14 @@ function notify(title, text, func=function() {}) {
 }
 
 
-function translate(text) {
+/**
+ * Translate some text to the user's locale
+ *
+ * @param {String} tag - tag for the text to localize
+ */
+function localize(tag) {
   return {
     aim: "translated",
-    content: localization.get(text),
+    content: localization.get(tag),
   };
 }

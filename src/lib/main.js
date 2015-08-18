@@ -7,6 +7,7 @@
 
 
 // built-in modules
+import buttons from "sdk/ui/button/action";
 import hotkeys from "sdk/hotkeys";
 import panels from "sdk/panel";
 import self from "sdk/self";
@@ -16,17 +17,17 @@ import widgets from "sdk/widget";
 
 
 // own modules
-import migrations from "./migrations";
+// import migrations from "./migrations";
 import presets from "./presets";
 import utils from "./utils";
 
 
 // module variables
-let links, activeLinks, panel, widget, hotkey; // eslint-disable-line no-unused-vars
+let links, activeLinks, panel, widget, hotkey, button; // eslint-disable-line no-unused-vars
 
 
 // Run migrations
-migrations.run();
+// migrations.run();
 
 
 function getLinks(l) {
@@ -184,4 +185,19 @@ storage.on("OverQuota", function(){
       panel.show();
     }
   );
+});
+
+
+
+button = buttons.ActionButton({
+  id: "mozilla-link",
+  label: "Visit Mozilla",
+  icon: {
+    "16": self.data.url("img/icon.png"),
+    "32": self.data.url("img/icon.png"),
+    "64": self.data.url("img/icon64.png"),
+  },
+  onClick: function() {
+    panel.show();
+  },
 });

@@ -5,55 +5,29 @@
  */
 
 
-(function() {
-
-
-"use strict";
-
-
-// exported from module
-exports = {
-    get: get
+export default {
+    get,
 };
 
 
 // built-in modules
-var l10n = require("sdk/l10n");
-var self = require("sdk/self");
+import self from "sdk/self";
+
+
+// own modules
+import utils from "./utils";
 
 
 // module variables
 var links = JSON.parse(self.data.load("js/presets.json"));
 
 
-/**
- *
+/*
+ * Return localized links
  */
 function get() {
-
+  links.forEach(function(preset) {
+    preset.label = utils.localize(preset.id);
+  });
+  return links;
 }
-
-})();
-
-var QL_presets = {
-  l10n: require('sdk/l10n'),
-  links: JSON.parse(require('sdk/self').data.load('js/presets.json')),
-  translate: function (text) {
-    "use strict";
-    return QL_presets.l10n.get(text);
-  },
-  get: function () {
-    "use strict";
-    /*
-    * This translates the display_names of the links to the values found in the
-    * locales. Returns the translated links.
-    */
-    QL_presets.links.forEach(function(preset) {
-      preset.display_name = QL_presets.translate(preset.display_name);
-    });
-    return QL_presets.links;
-  }
-};
-
-
-exports.get = QL_presets.get;
