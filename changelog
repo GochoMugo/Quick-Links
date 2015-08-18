@@ -9,12 +9,10 @@ Key
 =====================
 
 
-
-
 [0.2.0]
 =====================
 1.  +  Clicking icons in the add panel opens a new tab with its associated url loaded.
-2.  +  French translation added. <By Magali de Morangies> 
+2.  +  French translation added. <By Magali de Morangies>
 3.  =  Notification shown only major and minor version bumps occur. Ignores patch version bumps.
 
 
@@ -23,7 +21,7 @@ Key
 
 1.  +  Overhaul of data structure with an object-oriented feel
         *   Links can be easily added to the addon by:
-        * add a link entry into "presets.js" 
+        * add a link entry into "presets.js"
         * use the id (from the newly-created entry above) in locale files to provide a translation
 
 2.  +  Added a background image on the panel
@@ -43,11 +41,11 @@ Key
         * Unrequired Jquery Files have been deleted
         * Non-minified css and js in both Bootstrap and Font Awesome Library have been removed
 
-2.  +  Semantic Versioning Enforcement 
+2.  +  Semantic Versioning Enforcement
         * First-run shows the correct addon version
 
 3.  +  Compatibility specification in First-run.html corrected for accuracy
-4.  =  Links in first-run.html removed 
+4.  =  Links in first-run.html removed
         * The images were wrapped in Links with href attr pointing to the images dir
         * However the Link was "dead". Image didn't show up
 

@@ -1,14 +1,19 @@
+
 # QUICK LINKS ![logo][logo] #
 
-### Description ###
-> Tired or typing and re-typing URLs in your Address bar. Here comes Quick Links
+## Description
 
-This Mozilla Firefox Addon adds iconic links to the browser addon bar (status bar) that lets you click on them and *quickly* open the allocated URL in a new tab.
+> Tired or typing and re-typing URLs in your Address bar. Get Quick Links
 
-### Homepage ###
+This Mozilla Firefox Addon adds iconic links to the browser addon bar (status bar) that you can click on to *quickly* open the allocated URL in a new tab.
+
+
+## Homepage
+
 More details can be found in the addon [site][addon-site]
 
-### Details ####
+
+## Details
 
 |Aspect|Detail|
 |---------|---------:|
@@ -19,21 +24,27 @@ More details can be found in the addon [site][addon-site]
 |*Languages*|English(US), Swahili, French|
 |*Last Updated*|December 27, 2014|
 
-### Downloads ###
 
-#### 1. Mozilla.org (recommended) ####
+## Installation
+
+### 1. Mozilla.org (recommended)
+
 The Addon is listed on the Mozilla.org site [here][download-mozilla].
 
-#### 2. Build with Mozilla addon-sdk-1.16 ####
-1.    Download ZIP or clone this repo: `git clone https://github.com/GochoMugo/Quick-Links.git`
-2.  If you haven't downloaded the SDK: `make`
-    - This will automatically install the addon sdk, build the addon and install it.
+### 2. Build with Mozilla addon-sdk-1.17
+
+1. Download ZIP or clone this repo: `git clone https://github.com/GochoMugo/Quick-Links.git`
+2. Build and Install the addon: `make`
+    - This will automatically install the addon sdk (if `cfx` is __not__ available).
+    - Builds the addon and installs it.
     - If it fails, you may require `sudo make` to make cfx be installed properly.
     - The `cfx` command will be available to you from your terminal.
 
 > You may find more information on building addons [here][addon-sdk]
 
-### Contribution ###
+
+## Contribution
+
 In case of a bug or feature request, you can create an [issue][issues] and let us look into it as soon as possible.
 
 If you wish to translate this addon to another language, please view the [translations][translations] page.
@@ -42,7 +53,8 @@ From [here][correspondence] anybody can report a bug, suggest a change or simply
 
 All bugs, updates and changes are posted at the [page][bug-report-page]. 
 
-### Credits ###
+
+## Credits
 
 A list of all the contributors to this addon.
 
@@ -51,8 +63,13 @@ A list of all the contributors to this addon.
 
 Contribute to this project and see your name here...
 
-### License ###
-The addon and it source code is available under the [*MIT* License][license-page]. 
+
+## License
+
+__The MIT License (MIT)__
+
+Copyright (c) 2014 Gocho Mugo <mugo@forfuture.co.ke>
+
 
 [logo]:https://gochomugo.github.io/Quick-Links/images/logo.png "Quick Links"
 [addon-site]:https://gochomugo.github.io/Quick-Links/index.html "Go to Addon Site"

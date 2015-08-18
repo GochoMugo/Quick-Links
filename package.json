@@ -14,5 +14,11 @@
     "quick links", "links", "tabs", "mozilla", "firefox"
   ],
   "license": "MIT",
-  "permissions": {"private-browsing":true}
+  "permissions": {
+      "private-browsing": true
+  },
+  "devDependencies": {
+    "gulp": "^3.5.6",
+    "gulp-jshint": "^1.9.0"
+  }
 }
