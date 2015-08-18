@@ -1,2 +1,14 @@
 # XPI built by cfx
 *.xpi
+
+# Babel output
+/data/
+/doc/
+/lib/
+/locale/
+/script/
+/test/
+/Gruntfile.js
+
+# error logs
+*.log

@@ -4,7 +4,7 @@
         "es6": true
     },
     "ecmaFeatures": {
-      "modules": true,
+      "modules": true
     },
     "rules": {
         "comma-dangle": [2, "always-multiline"],

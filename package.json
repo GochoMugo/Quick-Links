@@ -27,6 +27,6 @@
   "main": "lib/main.js",
   "scripts": {
     "build": "babel src -D --out-dir .",
-    "clean": "rm *.xpi"
+    "clean": "rm -rf *.xpi *.log ; ls src/ | xargs -I{} rm -rf {}"
   }
 }
