@@ -1,4 +1,0 @@
-
-the migration module should handle migrating addon successively from an old version
-progressively until the current version is reached. E.g. v0.0.2 -> v0.1.0 -> v0.2.0
-
