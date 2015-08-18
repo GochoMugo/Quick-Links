@@ -7,6 +7,15 @@
  */
 
 
+export default {
+  run,
+};
+
+
+// built-in modules
+import storage from "sdk/simple-storage";
+
+
 var QL_migration = {
   v0_0_2_to_v0_1_0: function (oldData) {
     "use strict";
@@ -83,4 +92,55 @@ var QL_migration = {
 }
 
 
-exports.init = QL_migration.init;
+
+/*
+ * A new version has been downloaded
+ * Initate Migration. Handles versions that didn't register their version
+ * numbers by setting it to 'Unknown'
+ * Register the new version number
+ * Show notification if a Major and Minor version bump occurred. Ignores
+ * patch version bump.
+ */
+function majorBump() {
+  if (! QL_var.storage.version) { return false; }
+
+  var old_version = QL_var.storage.version.substr(0,
+    QL_var.storage.version.lastIndexOf('.'));
+  var new_version = QL_var.version.substr(0,
+    QL_var.version.lastIndexOf('.'));
+
+  if (old_version !== new_version) { return true; }
+  return false;
+}
+
+
+if (QL_var.version !== QL_var.storage.version) {
+  if (! QL_var.storage.version) { QL_var.storage.version = "Unknown"; }
+  QL_var.storage.links = QL_var.migration.init("v" + QL_var.storage.version
+    + " to v" + QL_var.version, QL_var.storage.links);
+
+  if (majorBump()) {
+    QL_var.notify("Upgraded to version " + QL_var.version,
+      "Quick Links has been upgraded. Click to see the updates and new\
+      features.",
+      function () {
+        "use strict";
+        require('sdk/tabs').open(
+          "https://gochomugo.github.io/Quick-Links/upgrades.html#"
+          + QL_var.version);
+      });
+  }
+  QL_var.storage.version = QL_var.version;
+}
+
+
+/*Checking if it a First run*/
+if (!QL_var.storage.first_run) {
+  /*
+  * Opening tab with the page for First Run and set it to 'true' for Restarts
+  * Also store the version number of the XPI
+  */
+  require('sdk/tabs').open(QL_var.data.url('first-run.html'));
+  QL_var.storage.first_run = true;
+  QL_var.storage.version = QL_var.version;
+}
