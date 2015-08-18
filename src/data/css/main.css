@@ -1,0 +1,31 @@
+/*Importing Ubuntu font*/
+@font-face {
+	font-family: 'ubuntu';
+	src: url('fonts/Ubuntu 300.ttf');
+}
+/*Customzing all the content in the Body*/
+body {
+	font-family: 'ubuntu';
+}
+/*Styling the Divs*/
+.inline-container {
+    display: inline-block;
+}
+/*Styling the Icons*/
+i {
+	cursor: pointer;
+	margin-right: 1px;
+}
+	/*Adding hover effects*/
+	i:hover {
+		color: #12BEF7 !important;
+	}
+	/*Styling the active icon*/
+	.active {
+		color: #FFD61C;
+	}
+/*Styling the  Add icon*/
+#add {
+	margin-left: 10px;
+	color: red;
+}

@@ -1,0 +1,143 @@
+@import url(../font-awesome/css/font-awesome.min.css);
+
+/*Styling the Content in body*/
+body {
+	font-size: 12px;
+	padding: 5px;
+}
+
+/*Styling the background image*/
+.bg-logo {
+    height: 250px;
+    width: 250px;
+    position: fixed;
+    opacity: 0.25;
+    bottom: 0;
+    right: 0;
+}
+    .bg-logo img {
+        height: 300px;
+    }
+/*Styling the tab links*/
+.nav-tabs li  a {
+	border: 0 !important;
+}
+
+/*Styling the Active Tab link*/
+.nav-tabs .active a {
+	border-bottom: 2px solid #87F14E !important;
+}
+
+/*Styling the Table*/
+.table {
+	text-align: center;
+}
+/*Styling the table header*/
+.table-header {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/*General Xtics of the icon checkboxes*/
+label {
+	position: relative;
+	cursor: pointer;
+	bottom: 8px;
+}
+	/*Adding hover effects on the icon checkboxes*/
+	label:hover {
+		color: #12BEF7;
+	}
+label:before, label:after {
+	font-family: 'FontAwesome';
+	font-weight: lighter;
+	font-size: 12px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+/*Adding the Unchecked icon*/
+label:before {
+	content: "\f096";
+}
+/*Adding the Checked icon*/
+label:after {
+	content: '\f046'; /*checked*/
+	/*checked icon will be hidden by default by using 0 max-width and overflow hidden*/
+	max-width: 0;
+	overflow: hidden;
+	opacity: 0.5;
+	/*CSS3 transitions for animated effect*/
+	transition: all 0.95s;
+}
+
+/*hiding the original checkboxes*/
+input[type="checkbox"] {
+	display: none;
+}
+/*when the user checks the checkbox the checked icon will animate in*/
+input[type="checkbox"]:checked + label:after {
+	max-width: 25px; /*an arbitratry number more than the icon's width*/
+	opacity: 1; /*for fade in effect*/
+}
+
+/*Styling the primary button container*/
+#btn {
+	text-align: center;
+}
+/*Styling the Primary button*/
+.btn-primary {
+	width: 70%;
+}
+
+/*Styling the Adding-Site Section*/
+#add-site {
+	text-align: center;
+	width: 60%;
+	margin-left: 20%;
+	padding: 2px;
+}
+/*Styling the Container for the Icons*/
+#btn-group {
+	width: 80%;
+	margin-left: 10%;
+	padding: 2px;
+}
+/*Styling the Labels holding the individual icons*/
+#btn-group label {
+	float: left;
+	margin: 0 2px 2px 2px;
+	border-radius: 2px;
+}
+	/*Reset for the label:before and label:after for the animated checkboxes*/
+	#btn-group label:before, #btn-group label:after {
+		content: '';
+		display: none;
+	}
+	/*Adding Hover effects*/
+	#btn-group label:hover i {
+		color: #12BEF7 !important;
+	}
+/*Styling all the Input-groups in the adding site section*/
+#add-site div {
+	width: 100%;
+	margin-bottom: 4px;
+}
+/*Styling the Input group addons*/
+#add-site div span {
+	width: 80px;
+}
+
+/*RESET for the Content in the Active tab to be in color Black*/
+.active {
+	color: black;
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #FFF;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25) inset;
+}

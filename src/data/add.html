@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Add Panel</title>
+    <link rel='stylesheet' href='bootstrap/dist/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='font-awesome/css/font-awesome.min.css'/>
+    <link rel='stylesheet' href='styles/main.css' />
+    <link rel='stylesheet' href='styles/add.css' />
+</head>
+<body>
+    <div class="bg-logo">
+        <img src="images/firefox_logo-large.png">
+    </div>
+    <div>
+        <ul class='nav nav-tabs' id="ctrl-tabs">
+            <li class='active'>
+                <a href="#social-media" data-toggle='tab' data-l10n-id='tab_1'></a>
+            </li>
+            <li>
+                <a href="#my-other-sites" data-toggle='tab' data-l10n-id='tab_2' id="tab_2"></a>
+            </li>
+            <li class='pull-right'>
+                <button type='text' class='btn btn-default' id='close-button'><i class='fa fa-times'></i></button>
+            </li>
+        </ul>
+
+        <div class='tab-content'>
+            <div class='tab-pane active' id='social-media'>
+                <table class='table'>
+                    <thead>
+                        <tr class='table-header'>
+                            <td data-l10n-id='table_include'></td>
+                            <td data-l10n-id='table_icon'></td>
+                            <td data-l10n-id='table_site'></td>
+                        </tr>
+                    </thead>
+                    <tbody id='major-sites'>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class='tab-pane' id='my-other-sites'>
+                <p data-l10n-id='add_table_description'></p>
+                <table class='table'>
+                    <thead>
+                        <tr class='table-header'>
+                            <td data-l10n-id='table_include'></td>
+                            <td data-l10n-id='table_icon'></td>
+                            <td data-l10n-id='table_site'></td>
+                            <td> </td>
+                        </tr>
+                    </thead>
+                    <tbody id='add-table'>
+                    
+                    </tbody>
+                </table>
+                <div id='add-site'>
+                    <div id='add-alert'></div>
+                    <p data-l10n-id='add_form_description'></p>
+                    <div class='btn-group' data-toggle='buttons' id='btn-group'>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-cloud' class='radios'> <i class='fa fa-cloud'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-code' class='radios'> <i class='fa fa-code'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-cogs' class='radios'> <i class='fa fa-cogs'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-comments' class='radios'> <i class='fa fa-comments'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-cutlery' class='radios'> <i class='fa fa-cutlery'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-download' class='radios'> <i class='fa fa-download'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-flag' class='radios'> <i class='fa fa-flag'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-gamepad' class='radios'> <i class='fa fa-gamepad'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-headphones' class='radios'> <i class='fa fa-headphones'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-heart' class='radios'> <i class='fa fa-heart'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-home' class='radios'> <i class='fa fa-home'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-institution' class='radios'> <i class='fa fa-institution'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-lightbulb-o' class='radios'> <i class='fa fa-lightbulb-o'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-money' class='radios'> <i class='fa fa-money'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-paper-plane' class='radios'> <i class='fa fa-paper-plane'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-question' class='radios'> <i class='fa fa-question'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-rss' class='radios'> <i class='fa fa-rss'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-search' class='radios'> <i class='fa fa-search'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-share' class='radios'> <i class='fa fa-share'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-star' class='radios'> <i class='fa fa-star'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-suitcase' class='radios'> <i class='fa fa-suitcase'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-terminal' class='radios'> <i class='fa fa-terminal'></i>
+                        </label>
+                        <label class='btn btn-default'>
+                            <input type='radio' name='options' id='fa-user' class='radios'> <i class='fa fa-user'></i>
+                        </label>
+                    </div>
+                    <div class='input-group'>
+                        <span class='input-group-addon' data-l10n-id='input_title'></span>
+                        <input type='text' class='form-control' id='add-title' placeholder='E.g. Personal Site' required>
+                    </div>
+                    <div class='input-group'>
+                        <span class='input-group-addon'  data-l10n-id='input_url'></span>
+                        <input type='text' class='form-control' id='add-url' placeholder='E.g. https://gochomugo.github.io/' required>
+                    </div>
+                    <div class='input-group'>
+                        <span class='input-group-addon' data-l10n-id='input_identifier'></span>
+                        <input type='text' class='form-control' id='add-id' placeholder='Shown next to the icon. E.g. gm'>
+                    </div>
+                    <button class='btn btn-primary' id='add-btn' data-l10n-id='btn_add'></button>
+                    <p>
+                        <center>
+                            <kbd data-l10n-id='hotkey1'></kbd> + 
+                            <kbd data-l10n-id='hotkey2'></kbd> + 
+                            <kbd data-l10n-id='hotkey3'></kbd>&nbsp;
+                            <span data-l10n-id='hotkey_more'></span>
+                        </center>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
