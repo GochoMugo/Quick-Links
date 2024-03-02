@@ -1,3 +1,9 @@
+> ⚠️⚠️⚠️
+> This repo has been archived.
+> This Firefox Addon was buillt for Firefox versions 21.0a - 32.0.
+> Newer Firefox versions don't use addon/status bar.
+> ⚠️⚠️⚠️
+
 # QUICK LINKS ![logo][logo] #
 
 ### Description ###
